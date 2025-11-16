@@ -2,113 +2,630 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>AC Performance Horses</title>
+  <title>AC Performance Horses – Entrenamiento Profesional de Caballos de Rienda</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
-    body {
+    :root {
+      --bg-main: #050814;      /* casi negro azulado */
+      --bg-secondary: #0d1524;
+      --gold: #d4af37;
+      --gold-soft: #f6d781;
+      --text-main: #f5f5f5;
+      --text-muted: #b5b8c4;
+      --accent: #8a5a2b;       /* tono cuero / silla charra */
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0e1a26;
-      color: #f5f5f5;
+      background: radial-gradient(circle at top, #101b33 0, var(--bg-main) 55%);
+      color: var(--text-main);
+      line-height: 1.6;
     }
-    header {
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .logo {
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 4rem 1.5rem 3rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    h1 {
-      font-size: clamp(2.3rem, 4vw, 3rem);
-      margin-bottom: 1rem;
-    }
-    p {
-      opacity: 0.9;
-      max-width: 600px;
-    }
-    .badge {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      border: 1px solid rgba(255,255,255,0.3);
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      margin-bottom: 1.5rem;
-    }
-    .cta {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .btn {
-      padding: 0.8rem 1.6rem;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
+
+    a {
+      color: inherit;
       text-decoration: none;
     }
-    .btn-primary {
-      background: #f5c34b;
-      color: #111;
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(5,8,20,0.96), rgba(5,8,20,0.84));
+      border-bottom: 1px solid rgba(212,175,55,0.25);
     }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .logo-main {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .logo-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--accent));
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .btn-login {
+      border-radius: 999px;
+      padding: 0.5rem 1.1rem;
+      border: 1px solid var(--gold);
+      color: var(--gold-soft);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .btn-login:hover {
+      background: rgba(212,175,55,0.08);
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 0.9rem;
+      }
+    }
+
+    /* HERO */
+
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 1.4rem 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-radius: 999px;
+      padding: 0.25rem 0.9rem;
+      border: 1px solid rgba(212,175,55,0.6);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-soft);
+      margin-bottom: 1.4rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 4vw, 2.9rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    h1 span {
+      color: var(--gold-soft);
+    }
+
+    .hero-text p {
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .hero-cta {
+      margin-top: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .btn-primary,
     .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.5);
-      color: #f5f5f5;
-    }
-    .footer {
-      padding: 1.5rem 2rem 2rem;
+      border-radius: 999px;
+      padding: 0.8rem 1.6rem;
       font-size: 0.85rem;
-      opacity: 0.7;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--gold), var(--accent));
+      color: #111111;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.03);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(245,245,245,0.5);
+      background: transparent;
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero-meta {
+      margin-top: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta strong {
+      color: var(--gold-soft);
+      font-weight: 600;
+    }
+
+    .hero-image-card {
+      position: relative;
+      border-radius: 1.6rem;
+      overflow: hidden;
+      min-height: 260px;
+      background:
+        linear-gradient(145deg, rgba(212,175,55,0.2), rgba(5,8,20,0.9)),
+        url("TU_IMAGEN_DE_CABALLO_O_ALEJANDRO.jpg") center/cover no-repeat;
+      /* Reemplaza la ruta de arriba por una foto real */
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.7),
+        0 0 0 1px rgba(255,255,255,0.06);
+    }
+
+    .hero-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 0, rgba(255,255,255,0.1) 0, transparent 55%);
+    }
+
+    .hero-tag {
+      position: absolute;
+      bottom: 1.4rem;
+      left: 1.4rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 1rem;
+      background: rgba(5,8,20,0.88);
+      border: 1px solid rgba(212,175,55,0.5);
+      backdrop-filter: blur(12px);
+      max-width: 72%;
+      font-size: 0.75rem;
+    }
+
+    .hero-tag-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-soft);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-tag p {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    /* SECCIONES */
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.8rem 1.4rem;
+      border-top: 1px solid rgba(255,255,255,0.03);
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold-soft);
+      margin-bottom: 1.4rem;
+    }
+
+    section p {
+      color: var(--text-muted);
+      max-width: 780px;
+      font-size: 0.95rem;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      .grid-two {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: linear-gradient(145deg, var(--bg-secondary), #060915);
+      border-radius: 1.2rem;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+    }
+
+    .card h3 {
+      margin-bottom: 0.6rem;
+      font-size: 1.05rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .card ul li {
+      margin-bottom: 0.45rem;
+    }
+
+    .label-pill {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.6);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-soft);
+      margin-bottom: 0.6rem;
+    }
+
+    .waitlist-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .waitlist-form input,
+    .waitlist-form select,
+    .waitlist-form textarea {
+      background: #050814;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.6rem 0.8rem;
+      color: var(--text-main);
+      font-size: 0.9rem;
+    }
+
+    .waitlist-form input::placeholder,
+    .waitlist-form textarea::placeholder {
+      color: #5f6475;
+    }
+
+    .waitlist-form textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .waitlist-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 1.8rem 1.4rem 2rem;
       text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    footer span {
+      color: var(--gold-soft);
     }
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
   <header>
-    <div class="logo">AC Performance Horses</div>
-    <div>Est. 2025</div>
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-main">AC Performance Horses</div>
+        <div class="logo-sub">Rienda charra · alto rendimiento</div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#instalaciones">Instalaciones</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#lista-espera">Lista de espera</a>
+        <!-- cuando tengas login real, cambia href="#" por la URL de tu app -->
+        <a href="#login" class="btn-login">Área de propietarios</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="hero">
-    <div class="badge">Domando potencia & elegancia</div>
-    <h1>Entrenamiento profesional de caballos de alto rendimiento</h1>
-    <p>
-      AC Performance Horses se especializa en la preparación de caballos para
-      competencia, venta y doma profesional. Cuidado responsable, entrenamiento
-      de alto nivel y resultados medibles.
-    </p>
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Centro profesional de entrenamiento
+        </div>
+        <h1>
+          Domando <span>precisión</span> y <span>elegancia</span><br />
+          en caballos de rienda charra.
+        </h1>
+        <p>
+          Programas de entrenamiento personalizados para caballos de alto rendimiento,
+          diseñados por <strong>Alejandro Casillas</strong>. Enfocado en resultados
+          medibles, cuidado responsable y máxima discreción para clientela de alto perfil.
+        </p>
 
-    <div class="cta">
-      <!-- Cambia el número a tu WhatsApp -->
-      <a class="btn btn-primary" href="https://wa.me/5210000000000" target="_blank">
-        Agendar visita
-      </a>
-      <a class="btn btn-outline" href="mailto:info@acperformancehorses.com.mx">
-        Escríbenos por correo
-      </a>
-    </div>
+        <div class="hero-cta">
+          <!-- CAMBIA el número por el WhatsApp real -->
+          <a href="https://wa.me/5210000000000" target="_blank" class="btn-primary">
+            Agendar visita privada
+          </a>
+          <a href="#lista-espera" class="btn-outline">
+            Unir mi caballo a la lista de espera
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          Clientes actuales: <strong>empresarios, alto mando militar y gobierno</strong>.<br />
+          Cupo limitado para preservar la calidad del entrenamiento.
+        </div>
+      </div>
+
+      <div class="hero-image-card">
+        <!-- Reemplaza la imagen en CSS (background:url(...)) -->
+        <div class="hero-image-overlay"></div>
+        <div class="hero-tag">
+          <div class="hero-tag-title">Alejandro Casillas</div>
+          <p>
+            Arrendador especializado en rienda charra, con experiencia en preparación
+            de caballos para competencias, exhibiciones privadas y venta.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAYECTORIA -->
+    <section id="trayectoria">
+      <div class="grid-two">
+        <div>
+          <h2>Trayectoria de Alejandro Casillas</h2>
+          <p>
+            Aquí puedes escribir la historia de Alejandro: años de experiencia,
+            competencias, caballos destacados, premios y referencias clave. Mantén
+            el tono directo y profesional, enfocado en resultados y confianza.
+          </p>
+        </div>
+        <div class="card">
+          <span class="label-pill">Highlights</span>
+          <h3>Logros y experiencia</h3>
+          <ul>
+            <li>● Más de  X años entrenando caballos de rienda charra.</li>
+            <li>● Caballos preparados para competencias nacionales y privadas.</li>
+            <li>● Trabajo directo con clientes de alto perfil y máxima discreción.</li>
+            <li>● Especializado en caballos de carácter fuerte y alto potencial.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTALACIONES -->
+    <section id="instalaciones">
+      <div class="grid-two">
+        <div>
+          <h2>Instalaciones</h2>
+          <p>
+            Describa brevemente el lienzo, caballerizas, picadero, caminadora,
+            áreas de rehabilitación y cualquier servicio adicional (veterinario,
+            herrador, transporte, etc.). El enfoque: seguridad, bienestar y
+            rendimiento del caballo.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Lo que verá en persona</h3>
+          <ul>
+            <li>● Caballerizas amplias y ventiladas.</li>
+            <li>● Pista de trabajo para rienda y ejercicios de precisión.</li>
+            <li>● Áreas separadas para entrenamiento, descanso y recuperación.</li>
+            <li>● Opciones de hospedaje del caballo a corto, mediano y largo plazo.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARKETPLACE -->
+    <section id="marketplace">
+      <div class="grid-two">
+        <div>
+          <h2>Marketplace</h2>
+          <p>
+            Próximamente: tienda online con equipo selecto para caballo y jinete,
+            curado directamente por Alejandro. Desde cabezales y sillas hasta
+            suplementos recomendados para caballos de alto rendimiento.
+          </p>
+        </div>
+        <div class="card">
+          <span class="label-pill">En desarrollo</span>
+          <h3>¿Qué podrás encontrar?</h3>
+          <ul>
+            <li>● Equipo de rienda charra y entrenamiento diario.</li>
+            <li>● Accesorios recomendados para mantenimiento del caballo.</li>
+            <li>● Productos limitados y colecciones especiales.</li>
+          </ul>
+          <!-- Cuando tengas la tienda, cambia el # por el link real -->
+          <a href="#" class="btn-outline" style="margin-top: 1rem; display:inline-flex;">
+            Entrar al marketplace (próximamente)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTA DE ESPERA -->
+    <section id="lista-espera">
+      <div class="grid-two">
+        <div>
+          <h2>Lista de espera para entrenamiento</h2>
+          <p>
+            El cupo de caballos es limitado. Deja tus datos y características
+            del caballo para ser considerado en la siguiente apertura de espacios.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="label-pill">Solicitud</span>
+          <h3>Registrar mi interés</h3>
+
+          <!-- FORMULARIO ESTÁTICO POR AHORA -->
+          <form class="waitlist-form">
+            <input type="text" name="nombre" placeholder="Nombre completo" required />
+            <input type="email" name="email" placeholder="Correo electrónico" required />
+            <input type="tel" name="telefono" placeholder="Teléfono / WhatsApp" />
+            <input type="text" name="caballo" placeholder="Nombre y edad del caballo" />
+            <select name="objetivo">
+              <option value="">Objetivo principal del entrenamiento</option>
+              <option>Competencia</option>
+              <option>Venta</option>
+              <option>Rehabilitación / readaptación</option>
+              <option>Caballo joven – iniciar trabajo</option>
+            </select>
+            <textarea name="detalles" placeholder="Notas adicionales (historial, temperamento, metas)…"></textarea>
+
+            <!-- Cuando tengas backend, cambia action/method. Por ahora solo es visual. -->
+            <button type="button" class="btn-primary">
+              Enviar solicitud (demo)
+            </button>
+          </form>
+
+          <div class="waitlist-note">
+            *Este formulario es una demostración visual. Para contacto directo, utiliza el
+            botón de WhatsApp en la parte superior o escribe a:
+            <strong>info@acperformancehorses.com.mx</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGIN (placeholder) -->
+    <section id="login">
+      <div class="grid-two">
+        <div>
+          <h2>Área de propietarios</h2>
+          <p>
+            Panel privado para consultar avances del entrenamiento, videos,
+            calendario de trabajo y reportes de salud de cada caballo.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Acceso próximo</h3>
+          <p style="margin-bottom: 0.6rem;">
+            Cuando tengas lista la plataforma, aquí irá el login real
+            (usuario y contraseña) conectado a tu sistema.
+          </p>
+          <!-- Cambia el href cuando tengas tu app -->
+          <a href="#" class="btn-outline">
+            Ir al panel de propietarios (demo)
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <div class="footer">
-    © 2025 AC Performance Horses · Sitio demo en construcción
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    © <span>AC Performance Horses</span> · Entrenamiento profesional de caballos de rienda charra ·
+    Sitio demostrativo en construcción.
+  </footer>
+
 </body>
 </html>
