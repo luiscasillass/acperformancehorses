@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entrenamiento profesional de caballos de Rienda Charra en Tepatitlán, Jalisco.">
     <title>AC Performance Horses | Alejandro Casillas</title>
     <style>
-        /* --- VARIABLES & RESET --- */
+        /* --- 1. VARIABLES & LUXURY SETTINGS --- */
         :root {
-            --c-cream: #FFF1AB;
-            --c-brown: #614113;
-            --c-black: #000000;
+            --c-gold: #FFF1AB;       /* Acento Crema/Dorado */
+            --c-brown: #614113;      /* Marrón Cuero Principal */
+            --c-dark-brown: #3b2609; /* Marrón Oscuro para hovers */
+            --c-black: #111111;      /* Negro Suave */
             --c-white: #FFFFFF;
-            --c-gray-bg: #F5F5F7; /* Fondo Apple gris claro */
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --ease-apple: cubic-bezier(0.25, 1, 0.5, 1); /* Curva de animación suave */
+            --c-gray-light: #F5F5F7; /* Fondo Apple */
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --ease-luxury: cubic-bezier(0.165, 0.84, 0.44, 1); /* Curva de animación ultra suave */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,72 +25,111 @@
             background-color: var(--c-white);
             color: #1d1d1f;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+            -webkit-font-smoothing: antialiased; /* Renderizado de texto nítido */
         }
 
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3 { color: var(--c-black); letter-spacing: -0.01em; }
-        h1 { font-size: 3.5rem; font-weight: 600; line-height: 1.08; }
-        h2 { font-size: 2.5rem; font-weight: 600; margin-bottom: 20px; }
-        p { font-size: 1.15rem; line-height: 1.6; color: #86868b; font-weight: 400; }
+        /* --- 2. TYPOGRAPHY --- */
+        h1, h2, h3 { letter-spacing: -0.015em; color: var(--c-black); }
         
-        a { text-decoration: none; color: inherit; }
+        h1 { 
+            font-size: 4.5rem; 
+            font-weight: 700; 
+            line-height: 1.1; 
+            background: linear-gradient(to bottom right, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
 
-        /* --- ANIMACIONES (Scroll Reveal) --- */
+        h2 { font-size: 3rem; font-weight: 600; margin-bottom: 25px; color: var(--c-brown); }
+        h3 { font-size: 1.5rem; font-weight: 600; }
+        
+        p { 
+            font-size: 1.25rem; 
+            line-height: 1.7; 
+            color: #6e6e73; 
+            font-weight: 300; 
+        }
+
+        .subtitle-caps {
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--c-gold);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+
+        /* --- 3. ANIMATIONS (Scroll Reveal) --- */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s var(--ease-apple);
+            transform: translateY(40px);
+            transition: all 1.2s var(--ease-luxury);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* --- UI COMPONENTS --- */
+        /* --- 4. UI COMPONENTS (Buttons) --- */
         .btn {
             display: inline-block;
-            padding: 14px 35px;
+            padding: 16px 40px;
             background-color: var(--c-brown);
-            color: var(--c-white);
-            border-radius: 980px;
-            font-size: 17px;
+            color: var(--c-white) !important;
+            border-radius: 99px;
+            font-size: 1rem;
             font-weight: 500;
-            transition: transform 0.3s var(--ease-apple), background-color 0.3s;
+            letter-spacing: 0.02em;
+            transition: all 0.4s var(--ease-luxury);
             border: 1px solid transparent;
+            box-shadow: 0 4px 15px rgba(97, 65, 19, 0.2);
         }
         .btn:hover {
-            transform: scale(1.02);
-            background-color: #4a300e;
+            transform: scale(1.03);
+            background-color: var(--c-dark-brown);
+            box-shadow: 0 10px 25px rgba(97, 65, 19, 0.3);
         }
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--c-brown);
-            border: 1px solid var(--c-brown);
+        
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .btn-secondary:hover {
-            background-color: var(--c-brown);
-            color: var(--c-white);
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        /* --- HEADER (Glassmorphism) --- */
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--c-brown);
+            color: var(--c-brown) !important;
+        }
+        .btn-outline:hover {
+            background: var(--c-brown);
+            color: var(--c-white) !important;
+        }
+
+        /* --- 5. HEADER (Glassmorphism Premium) --- */
         header {
             position: fixed;
-            top: 0;
-            width: 100%;
-            height: 70px;
+            top: 0; left: 0; right: 0;
+            height: 80px;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85); /* Más opacidad para legibilidad */
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
             height: 100%;
             display: flex;
             justify-content: space-between;
@@ -96,227 +137,189 @@
         }
 
         .logo img {
-            height: 45px; /* Ajuste elegante */
+            height: 55px;
             width: auto;
             display: block;
+            transition: transform 0.3s ease;
         }
+        .logo:hover img { transform: scale(1.05); }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
+        nav ul { display: flex; list-style: none; gap: 40px; }
         nav a {
-            font-size: 13px;
-            color: rgba(0,0,0,0.8);
-            transition: color 0.2s;
+            font-size: 0.9rem;
+            color: #333;
             font-weight: 500;
+            position: relative;
         }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px;
+            bottom: -5px; left: 0;
+            background-color: var(--c-brown);
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after { width: 100%; }
         nav a:hover { color: var(--c-brown); }
 
-        .login-link { color: var(--c-brown) !important; }
-
-        /* --- HERO SECTION (Parallax) --- */
+        /* --- 6. HERO SECTION (Cinema Style) --- */
         .hero {
             position: relative;
-            height: 95vh;
-            overflow: hidden;
+            height: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            overflow: hidden;
         }
 
         .hero-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* IMAGEN: acph_calando.png */
-            background-image: url('acph_calando.png'); 
+            /* IMAGEN DE FONDO PRINCIPAL */
+            background-image: url('images/acph_calando.png'); 
             background-size: cover;
             background-position: center;
             z-index: 1;
-            /* Efecto parallax simple con CSS */
-            background-attachment: fixed; 
+            /* Parallax Effect */
+            will-change: transform;
+            transform: scale(1.1); /* Zoom leve inicial */
+            animation: zoomSlow 20s infinite alternate;
+        }
+
+        /* Animación suave de fondo */
+        @keyframes zoomSlow {
+            from { transform: scale(1.1); }
+            to { transform: scale(1.15); }
         }
 
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+            /* Degradado cinematográfico: Oscuro abajo, claro arriba */
+            background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
             z-index: 2;
         }
 
         .hero-content {
             position: relative;
             z-index: 3;
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 20px;
+            margin-top: 60px; /* Offset visual por el header */
         }
 
-        .hero-content h1 {
-            color: var(--c-white);
-            margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero-content p {
+        .hero-location {
+            font-size: 1.1rem;
             color: rgba(255,255,255,0.9);
-            font-size: 1.5rem;
             margin-bottom: 40px;
-            font-weight: 300;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* --- SECTIONS GENERAL --- */
-        section { padding: 120px 0; }
-        .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+        /* --- 7. SECTIONS & GRID --- */
+        section { padding: 140px 0; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
 
-        /* --- INTRO / BIO --- */
+        /* Bio Section */
         .bio-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 100px;
             align-items: center;
         }
-
-        .bio-text h2 { color: var(--c-brown); }
-        
         .bio-image {
             position: relative;
-            border-radius: 20px;
+            border-radius: 4px; /* Bordes menos redondos para seriedad */
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            aspect-ratio: 4/5;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            height: 600px;
         }
-        
         .bio-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* IMAGEN: acph_charro.png */
-            transition: transform 0.7s var(--ease-apple);
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 1s ease;
         }
         .bio-image:hover img { transform: scale(1.05); }
 
-        /* --- PROGRAMAS & GRID --- */
-        .programs-bg { background-color: var(--c-gray-bg); }
-        
+        /* Programs Grid */
+        .programs-bg { background-color: var(--c-gray-light); }
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
         .card {
             background: var(--c-white);
-            border-radius: 18px;
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.4s var(--ease-apple);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: all 0.5s var(--ease-luxury);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex; flex-direction: column;
             cursor: pointer;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
+        .card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        
+        .card-img { height: 280px; width: 100%; overflow: hidden; position: relative; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .card:hover .card-img img { transform: scale(1.1); }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.08);
-        }
-
-        .card-img {
-            height: 250px;
-            width: 100%;
-            overflow: hidden;
-        }
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .card:hover .card-img img { transform: scale(1.05); }
-
-        .card-body { padding: 30px; flex-grow: 1; }
-        .card-body h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--c-black); font-weight: 600; }
-        .card-body p { font-size: 1rem; color: #6e6e73; }
+        .card-body { padding: 40px 30px; flex-grow: 1; }
+        .card-body h3 { margin-bottom: 15px; color: var(--c-brown); }
         
         .card-link {
-            padding: 20px 30px;
-            border-top: 1px solid #eee;
+            padding: 25px 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
             color: var(--c-brown);
-            font-size: 0.9rem;
-            font-weight: 500;
         }
 
-        /* --- BIG FEATURE (Instalaciones) --- */
-        .feature-section {
-            padding: 0;
-            position: relative;
-        }
+        /* Feature Section (Instalaciones) */
+        .feature-section { padding: 0; }
         .feature-container {
-            display: flex;
-            flex-direction: column-reverse; /* Imagen arriba en movil */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 800px;
         }
-        
-        @media(min-width: 768px) {
-            .feature-container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                height: 700px; /* Altura fija para impacto */
-            }
-        }
-
         .feature-img {
-            /* IMAGEN: acph_2.png */
-            background-image: url('acph_2.png');
-            background-size: cover;
-            background-position: center;
+            /* IMAGEN SECUNDARIA */
+            background-image: url('images/acph_2.png');
+            background-size: cover; background-position: center;
         }
-
         .feature-content {
-            background-color: var(--c-black);
+            background-color: #0a0a0a; /* Almost Black */
             color: var(--c-white);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 60px;
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 80px;
         }
-        .feature-content h2 { color: var(--c-cream); }
-        .feature-content p { color: rgba(255,255,255,0.7); }
+        .feature-content h2 { color: var(--c-gold); }
+        .feature-content p { color: rgba(255,255,255,0.6); border-left: 1px solid var(--c-brown); padding-left: 30px; }
 
-        /* --- WAITING LIST & CTA --- */
-        .cta-section {
-            text-align: center;
-            background-color: var(--c-white);
-        }
+        /* CTA */
+        .cta-section { text-align: center; }
 
-        /* --- FOOTER --- */
+        /* Footer */
         footer {
-            background-color: var(--c-gray-bg);
-            padding: 80px 0 40px 0;
-            font-size: 12px;
-            color: #86868b;
-            border-top: 1px solid #d2d2d7;
+            background-color: var(--c-gray-light);
+            padding: 80px 0;
+            border-top: 1px solid #e1e1e1;
+            text-align: center;
         }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
+        .footer-logo { height: 40px; opacity: 0.8; margin-bottom: 20px; }
+        .copyright { font-size: 0.8rem; color: #999; }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .nav-container ul { display: none; } /* Ocultar menú en móvil básico */
-            .bio-section { grid-template-columns: 1fr; gap: 40px; }
-            .feature-container { height: auto; }
-            .feature-img { height: 400px; }
+        @media (max-width: 900px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.2rem; }
+            .nav-container ul { display: none; } /* Mobile Menu Hidden for simplicity */
+            .bio-section { grid-template-columns: 1fr; gap: 50px; }
+            .feature-container { grid-template-columns: 1fr; }
+            .feature-img { height: 400px; order: -1; } /* Image on top mobile */
+            .bio-image { height: 400px; }
         }
     </style>
 </head>
@@ -325,15 +328,15 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo">
-                <img src="AC_logo_main.jpg" alt="AC Performance Horses">
+                <img src="images/AC_logo_main.jpg" alt="AC Performance Horses Logo">
             </a>
             <nav>
                 <ul>
-                    <li><a href="#programas">Programas</a></li>
-                    <li><a href="#instalaciones">Instalaciones</a></li>
-                    <li><a href="#caballos">Caballos</a></li>
-                    <li><a href="#marketplace">Marketplace</a></li>
-                    <li><a href="#login" class="login-link">Propietarios ></a></li>
+                    <li><a href="#programas">PROGRAMAS</a></li>
+                    <li><a href="#instalaciones">INSTALACIONES</a></li>
+                    <li><a href="#caballos">CABALLOS</a></li>
+                    <li><a href="#marketplace">MARKETPLACE</a></li>
+                    <li><a href="#login" style="color: var(--c-brown);">PROPIETARIOS</a></li>
                 </ul>
             </nav>
         </div>
@@ -343,60 +346,68 @@
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
-            <h1>Excelencia en Rienda Charra</h1>
-            <p>Tepatitlán de Morelos, Jalisco.</p>
-            <a href="#contacto" class="btn">Solicitar Ingreso 2025</a>
+            <span class="subtitle-caps">The Art of Reining</span>
+            <h1>EXCELENCIA EN<br>RIENDA CHARRA</h1>
+            <p class="hero-location">Tepatitlán de Morelos, Jalisco, MX.</p>
+            <a href="#contacto" class="btn btn-glass">Solicitar Ingreso 2025</a>
         </div>
     </section>
 
     <section class="container bio-section">
         <div class="bio-text reveal">
-            <h2>Tradición Refinada.</h2>
-            <p>Alejandro Casillas combina la herencia de la charrería con técnicas de acondicionamiento moderno. Nuestro enfoque no es forzar, sino convencer. Cada caballo es un atleta que merece un desarrollo físico y mental óptimo para ejecutar la cala perfecta.</p>
+            <span class="subtitle-caps" style="color: var(--c-brown);">Nuestra Filosofía</span>
+            <h2>Tradición refinada para el caballo moderno.</h2>
+            <p>Alejandro Casillas combina la herencia inigualable de la charrería con técnicas contemporáneas de acondicionamiento equino. No buscamos someter, sino convencer.</p>
             <br>
-            <a href="#filosofia" class="btn-secondary btn">Conocer Filosofía</a>
+            <p>Cada caballo es tratado como un atleta de alto rendimiento, desarrollando una base física y mental sólida antes de exigir la espectacularidad de la punta raya.</p>
+            <br><br>
+            <a href="#filosofia" class="btn btn-outline">Conocer al Entrenador</a>
         </div>
         <div class="bio-image reveal">
-            <img src="acph_charro.png" alt="Alejandro Casillas Charro">
+            <img src="images/acph_charro.png" alt="Alejandro Casillas Charro">
         </div>
     </section>
 
     <section class="programs-bg" id="programas">
         <div class="container">
-            <h2 class="reveal">Programas de Entrenamiento</h2>
+            <div class="reveal" style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <h2>Programas de Entrenamiento</h2>
+                <p>Diseñados para maximizar el potencial genético de cada ejemplar.</p>
+            </div>
+            
             <div class="grid-3 reveal">
                 
                 <div class="card">
                     <div class="card-img">
-                        <img src="acph_walk.png" alt="Entrenamiento Potrillos">
+                        <img src="images/acph_walk.png" alt="Futurity Training">
                     </div>
                     <div class="card-body">
                         <h3>Potrillos & Futurity</h3>
-                        <p>Programa especializado para potrillos de 2 y 3 años. Bases sólidas, confianza y preparación para los principales caladeros de México.</p>
+                        <p>Programa de iniciación especializado para prospectos de 2 y 3 años. Construimos confianza y suavidad desde el primer contacto.</p>
                     </div>
-                    <div class="card-link">Ver detalles</div>
+                    <div class="card-link">Ver Proceso</div>
                 </div>
 
                 <div class="card">
                     <div class="card-img">
-                        <img src="acph_calando.png" style="object-position: top;" alt="Caballos Open">
+                        <img src="images/acph_calando.png" style="object-position: top center;" alt="Open Horses">
                     </div>
                     <div class="card-body">
                         <h3>Caballos de Competencia</h3>
-                        <p>Mantenimiento y corrección para caballos terminados. Ajuste de lados, medios y punta raya para competencia de alto nivel.</p>
+                        <p>Corrección y mantenimiento para caballos terminados. Perfeccionamiento de lados, medios y entrada de patas.</p>
                     </div>
-                    <div class="card-link">Ver detalles</div>
+                    <div class="card-link">Ver Resultados</div>
                 </div>
 
                 <div class="card" id="marketplace">
-                    <div class="card-img" style="background: var(--c-brown); display: flex; align-items: center; justify-content: center;">
-                       <span style="color: var(--c-cream); font-size: 2rem; font-weight: 300;">AC Marketplace</span>
+                    <div class="card-img" style="background-color: var(--c-brown); display: flex; align-items: center; justify-content: center;">
+                       <span style="color: var(--c-gold); font-size: 2.5rem; font-family: serif;">AC</span>
                     </div>
                     <div class="card-body">
-                        <h3>Venta de Ejemplares</h3>
-                        <p>Selección exclusiva de caballos con registro y entrenamiento avanzado disponibles para compra.</p>
+                        <h3>Marketplace Exclusivo</h3>
+                        <p>Acceso a ejemplares seleccionados con registro y entrenamiento avanzado, listos para pista o reproducción.</p>
                     </div>
-                    <div class="card-link">Ver catálogo</div>
+                    <div class="card-link">Explorar Catálogo</div>
                 </div>
 
             </div>
@@ -406,58 +417,48 @@
     <section class="feature-section" id="instalaciones">
         <div class="feature-container">
             <div class="feature-content reveal">
-                <h2>Instalaciones de Alto Rendimiento.</h2>
-                <p>Ubicados en el corazón de Los Altos, contamos con arena techada profesional, caminadoras, y caballerizas diseñadas para el máximo confort y descanso de los atletas equinos.</p>
-                <br>
-                <a href="#tour" style="color: var(--c-cream); text-decoration: underline;">Ver galería de instalaciones</a>
+                <span class="subtitle-caps">Infraestructura</span>
+                <h2>Instalaciones de clase mundial.</h2>
+                <p>Ubicados en el corazón de los Altos de Jalisco, el centro está diseñado para el bienestar total del caballo. Arena techada profesional, caminadoras automáticas y caballerizas de alto flujo para el descanso óptimo del atleta.</p>
+                <br><br>
+                <a href="#tour" style="color: var(--c-white); text-decoration: underline; opacity: 0.7;">Ver galería completa →</a>
             </div>
-            <div class="feature-img"></div>
+            <div class="feature-img">
+                </div>
         </div>
     </section>
 
     <section class="cta-section">
         <div class="container reveal">
-            <h2 style="font-size: 3rem;">Únete al equipo.</h2>
-            <p style="max-width: 600px; margin: 0 auto 30px auto;">Actualmente tenemos lista de espera para nuevos ingresos. Regístrate para recibir notificación cuando se libere una caballeriza.</p>
+            <h2 style="font-size: 3.5rem;">Únete al Legado.</h2>
+            <p style="max-width: 600px; margin: 0 auto 40px auto;">Nuestras caballerizas son limitadas para garantizar la atención personalizada de cada caballo. Regístrate en la lista de espera.</p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="#registro" class="btn">Lista de Espera</a>
-                <a href="#login" class="btn btn-secondary">Log In Propietario</a>
+                <a href="#registro" class="btn">Aplicar a Lista de Espera</a>
+                <a href="#login" class="btn btn-outline">Log In Propietario</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div>
-                <p>Alejandro Casillas | AC Performance Horses</p>
-                <p>Tepatitlán de Morelos, Jalisco, MX.</p>
-            </div>
-            <div>
-                <img src="AC_logo_main.jpg" alt="Logo" style="height: 30px; opacity: 0.5;">
-            </div>
+        <div class="container">
+            <img src="images/AC_logo_main.jpg" alt="AC Logo" class="footer-logo">
+            <p style="font-size: 0.9rem;">Tepatitlán de Morelos, Jalisco, México.</p>
+            <br>
+            <p class="copyright">© 2025 AC Performance Horses. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Simple Intersection Observer para activar la clase .active cuando el elemento entra en pantalla
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        /* INTERSECTION OBSERVER: Activa las animaciones al hacer scroll */
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Solo animar una vez
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
 </body>
