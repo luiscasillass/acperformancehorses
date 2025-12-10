@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Entrenamiento profesional de caballos de Rienda Charra en Tepatitlán, Jalisco.">
-    <title>AC Performance Horses </title>
+    <title>AC Performance Horses</title>
 
     <link rel="icon" type="image/png" href="images/favicon.png">
     
@@ -15,7 +15,7 @@
             --c-brown: #614113;      /* Marrón Cuero Principal */
             --c-dark-brown: #3b2609; /* Marrón Oscuro para hovers */
             --c-black: #111111;      /* Negro Suave */
-            --c-white: #F5F5F5;
+            --c-white: #FFFFFF;
             --c-gray-light: #F5F5F7; /* Fondo Apple */
             --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             --ease-luxury: cubic-bezier(0.165, 0.84, 0.44, 1); /* Curva de animación ultra suave */
@@ -122,7 +122,7 @@
             top: 0; left: 0; right: 0;
             height: 80px;
             z-index: 1000;
-            background: #FFFFFF ;
+            background: #F5F5F5 ;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -165,7 +165,7 @@
         nav a:hover::after { width: 100%; }
         nav a:hover { color: var(--c-brown); }
 
-        /* --- 6. HERO SECTION (Cinema Style) --- */
+        /* --- 6. HERO SECTION (VIDEO BACKGROUND) --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -177,31 +177,26 @@
             overflow: hidden;
         }
 
-        .hero-bg {
+        /* ESTILO NUEVO PARA EL VIDEO */
+        .hero-video {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            /* IMAGEN DE FONDO PRINCIPAL */
-            background-image: url('images/acph_calando.png'); 
-            background-size: cover;
-            background-position: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            /* Esto es lo que permite que el video vertical llene la pantalla horizontal */
+            object-fit: cover; 
+            object-position: center;
+            
             z-index: 1;
-            /* Parallax Effect */
-            will-change: transform;
-            transform: scale(1.1); /* Zoom leve inicial */
-            animation: zoomSlow 20s infinite alternate;
-        }
-
-        /* Animación suave de fondo */
-        @keyframes zoomSlow {
-            from { transform: scale(1.1); }
-            to { transform: scale(1.15); }
         }
 
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Degradado cinematográfico: Oscuro abajo, claro arriba */
-            background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+            /* Degradado ajustado para legibilidad sobre video */
+            background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
             z-index: 2;
         }
 
@@ -346,7 +341,11 @@
     </header>
 
     <section class="hero">
-        <div class="hero-bg"></div>
+        <video autoplay muted loop playsinline class="hero-video" poster="images/acph_calando.png">
+            <source src="images/video.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
             <span class="subtitle-caps">The Art of Reining</span>
