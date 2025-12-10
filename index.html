@@ -1,820 +1,464 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-  <meta charset="UTF-8" />
-  <title>AC Performance Horses – Entrenamiento Profesional de Rienda Charra</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --black: #0b0b0b;
-      --off-black: #131313;
-      --brown: #6d4a2c;
-      --brown-dark: #4a2f1b;
-      --beige: #e9dcc5;
-      --beige-soft: #f4ebdd;
-      --white: #ffffff;
-      --text-muted: #b7b7b7;
-      --border-soft: rgba(255,255,255,0.08);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--black);
-      color: var(--white);
-      line-height: 1.6;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* LAYOUT BÁSICO */
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* NAV */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(16px);
-      background: rgba(11,11,11,0.95);
-      border-bottom: 1px solid var(--border-soft);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.9rem 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .logo-block {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .logo-main {
-      font-family: "Playfair Display", serif;
-      letter-spacing: 0.18em;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-    }
-
-    .logo-sub {
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--beige);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.4rem;
-      align-items: center;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    .nav-links a {
-      position: relative;
-      color: var(--text-muted);
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.3rem;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--brown), var(--beige));
-      transition: width 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--white);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .btn-login {
-      border-radius: 999px;
-      padding: 0.45rem 1.1rem;
-      border: 1px solid var(--beige);
-      color: var(--beige);
-      font-size: 0.75rem;
-    }
-
-    .btn-login:hover {
-      background: rgba(233,220,197,0.08);
-    }
-
-    @media (max-width: 850px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.7rem;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-        row-gap: 0.5rem;
-      }
-    }
-
-    /* HERO – estilo parecido a Fappani */
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      min-height: 80vh;
-      background: linear-gradient(120deg, #111111 0%, #0b0b0b 40%, #1b140f 100%);
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .hero-content {
-      display: flex;
-      align-items: center;
-      padding: 3.5rem 1.5rem 3rem;
-    }
-
-    .hero-inner {
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.25rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid rgba(233,220,197,0.5);
-      color: var(--beige);
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--beige);
-    }
-
-    .hero-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.2rem, 4vw, 3rem);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-title span {
-      color: var(--beige);
-    }
-
-    .hero-sub {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 1.8rem;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .btn-primary,
-    .btn-outline {
-      border-radius: 999px;
-      padding: 0.9rem 1.7rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--brown), var(--brown-dark));
-      color: var(--beige-soft);
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.05);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.6);
-      background: transparent;
-      color: var(--white);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.06);
-    }
-
-    .hero-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .hero-meta strong {
-      color: var(--beige);
-    }
-
-    .hero-image {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-image::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 10% 0%, rgba(233,220,197,0.25), transparent 55%),
-        radial-gradient(circle at 90% 100%, rgba(109,74,44,0.65), transparent 60%);
-      mix-blend-mode: soft-light;
-      z-index: 1;
-    }
-
-    .hero-image-img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      filter: grayscale(15%);
-    }
-
-    .hero-tag {
-      position: absolute;
-      left: 2rem;
-      bottom: 2rem;
-      z-index: 2;
-      background: rgba(7,7,7,0.9);
-      border-radius: 1.1rem;
-      padding: 0.9rem 1rem;
-      border: 1px solid rgba(233,220,197,0.6);
-      max-width: 75%;
-      font-size: 0.78rem;
-    }
-
-    .hero-tag-title {
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--beige);
-      font-size: 0.75rem;
-      margin-bottom: 0.25rem;
-    }
-
-    /* SECCIONES GENERALES */
-
-    section {
-      padding: 3.5rem 0;
-      border-top: 1px solid var(--border-soft);
-      background: radial-gradient(circle at top, #1a1510 0, #0b0b0b 45%);
-    }
-
-    section:nth-of-type(even) {
-      background: #111111;
-    }
-
-    .section-header {
-      margin-bottom: 2rem;
-    }
-
-    .section-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--beige);
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: 1.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-bottom: 0.4rem;
-    }
-
-    .section-sub {
-      color: var(--text-muted);
-      font-size: 0.96rem;
-      max-width: 680px;
-    }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 2rem;
-    }
-
-    @media (max-width: 900px) {
-      .two-column {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .card {
-      background: linear-gradient(145deg, #161616, #0e0e0e);
-      border-radius: 1.1rem;
-      padding: 1.5rem 1.6rem;
-      border: 1px solid var(--border-soft);
-    }
-
-    .card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.6rem;
-      font-family: "Playfair Display", serif;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .card p,
-    .card li {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    .card ul {
-      list-style: none;
-      margin-top: 0.5rem;
-    }
-
-    .card ul li {
-      margin-bottom: 0.45rem;
-    }
-
-    /* GALERÍA DE CABALLOS */
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    @media (max-width: 900px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 600px) {
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .gallery-item {
-      position: relative;
-      border-radius: 0.9rem;
-      overflow: hidden;
-      border: 1px solid var(--border-soft);
-      background: #151515;
-      min-height: 180px;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .gallery-caption {
-      position: absolute;
-      left: 0.7rem;
-      bottom: 0.7rem;
-      background: rgba(5,5,5,0.85);
-      padding: 0.35rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--beige);
-    }
-
-    /* WAITLIST / FORMULARIO */
-
-    .waitlist-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      margin-top: 0.8rem;
-    }
-
-    .waitlist-form input,
-    .waitlist-form select,
-    .waitlist-form textarea {
-      background: #0b0b0b;
-      border-radius: 0.7rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 0.7rem 0.85rem;
-      color: var(--white);
-      font-size: 0.9rem;
-    }
-
-    .waitlist-form input::placeholder,
-    .waitlist-form textarea::placeholder {
-      color: #6f6f6f;
-    }
-
-    .waitlist-form textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    .waitlist-note {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid var(--border-soft);
-      padding: 1.8rem 0 2rem;
-      background: #0a0a0a;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-align: center;
-    }
-
-    footer span {
-      color: var(--beige);
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC Performance Horses | Alejandro Casillas</title>
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --c-cream: #FFF1AB;
+            --c-brown: #614113;
+            --c-black: #000000;
+            --c-white: #FFFFFF;
+            --c-gray-bg: #F5F5F7; /* Fondo Apple gris claro */
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --ease-apple: cubic-bezier(0.25, 1, 0.5, 1); /* Curva de animación suave */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--c-white);
+            color: #1d1d1f;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 { color: var(--c-black); letter-spacing: -0.01em; }
+        h1 { font-size: 3.5rem; font-weight: 600; line-height: 1.08; }
+        h2 { font-size: 2.5rem; font-weight: 600; margin-bottom: 20px; }
+        p { font-size: 1.15rem; line-height: 1.6; color: #86868b; font-weight: 400; }
+        
+        a { text-decoration: none; color: inherit; }
+
+        /* --- ANIMACIONES (Scroll Reveal) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s var(--ease-apple);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- UI COMPONENTS --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: var(--c-brown);
+            color: var(--c-white);
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 500;
+            transition: transform 0.3s var(--ease-apple), background-color 0.3s;
+            border: 1px solid transparent;
+        }
+        .btn:hover {
+            transform: scale(1.02);
+            background-color: #4a300e;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--c-brown);
+            border: 1px solid var(--c-brown);
+        }
+        .btn-secondary:hover {
+            background-color: var(--c-brown);
+            color: var(--c-white);
+        }
+
+        /* --- HEADER (Glassmorphism) --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px; /* Ajuste elegante */
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 13px;
+            color: rgba(0,0,0,0.8);
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+        nav a:hover { color: var(--c-brown); }
+
+        .login-link { color: var(--c-brown) !important; }
+
+        /* --- HERO SECTION (Parallax) --- */
+        .hero {
+            position: relative;
+            height: 95vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* IMAGEN: acph_calando.png */
+            background-image: url('acph_calando.png'); 
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            /* Efecto parallax simple con CSS */
+            background-attachment: fixed; 
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            color: var(--c-white);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section { padding: 120px 0; }
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+
+        /* --- INTRO / BIO --- */
+        .bio-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .bio-text h2 { color: var(--c-brown); }
+        
+        .bio-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            aspect-ratio: 4/5;
+        }
+        
+        .bio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* IMAGEN: acph_charro.png */
+            transition: transform 0.7s var(--ease-apple);
+        }
+        .bio-image:hover img { transform: scale(1.05); }
+
+        /* --- PROGRAMAS & GRID --- */
+        .programs-bg { background-color: var(--c-gray-bg); }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: var(--c-white);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.4s var(--ease-apple);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+        }
+
+        .card-img {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .card:hover .card-img img { transform: scale(1.05); }
+
+        .card-body { padding: 30px; flex-grow: 1; }
+        .card-body h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--c-black); font-weight: 600; }
+        .card-body p { font-size: 1rem; color: #6e6e73; }
+        
+        .card-link {
+            padding: 20px 30px;
+            border-top: 1px solid #eee;
+            color: var(--c-brown);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* --- BIG FEATURE (Instalaciones) --- */
+        .feature-section {
+            padding: 0;
+            position: relative;
+        }
+        .feature-container {
+            display: flex;
+            flex-direction: column-reverse; /* Imagen arriba en movil */
+        }
+        
+        @media(min-width: 768px) {
+            .feature-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                height: 700px; /* Altura fija para impacto */
+            }
+        }
+
+        .feature-img {
+            /* IMAGEN: acph_2.png */
+            background-image: url('acph_2.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .feature-content {
+            background-color: var(--c-black);
+            color: var(--c-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+        }
+        .feature-content h2 { color: var(--c-cream); }
+        .feature-content p { color: rgba(255,255,255,0.7); }
+
+        /* --- WAITING LIST & CTA --- */
+        .cta-section {
+            text-align: center;
+            background-color: var(--c-white);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--c-gray-bg);
+            padding: 80px 0 40px 0;
+            font-size: 12px;
+            color: #86868b;
+            border-top: 1px solid #d2d2d7;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .nav-container ul { display: none; } /* Ocultar menú en móvil básico */
+            .bio-section { grid-template-columns: 1fr; gap: 40px; }
+            .feature-container { height: auto; }
+            .feature-img { height: 400px; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <header>
-    <div class="nav-inner">
-      <div class="logo-block">
-        <div class="logo-main">AC Performance Horses</div>
-        <div class="logo-sub">Rienda charra · alto rendimiento</div>
-      </div>
-      <nav class="nav-links">
-        <a href="#alejandro">Alejandro</a>
-        <a href="#programas">Programas</a>
-        <a href="#instalaciones">Instalaciones</a>
-        <a href="#caballos">Caballos</a>
-        <a href="#lista-espera">Lista de espera</a>
-        <a href="#marketplace">Marketplace</a>
-        <a href="#login" class="btn-login">Área de propietarios</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-inner">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          Centro profesional de entrenamiento
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="AC_logo_main.jpg" alt="AC Performance Horses">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#programas">Programas</a></li>
+                    <li><a href="#instalaciones">Instalaciones</a></li>
+                    <li><a href="#caballos">Caballos</a></li>
+                    <li><a href="#marketplace">Marketplace</a></li>
+                    <li><a href="#login" class="login-link">Propietarios ></a></li>
+                </ul>
+            </nav>
         </div>
-        <h1 class="hero-title">
-          Caballos de <span>rienda charra</span> al máximo nivel.
-        </h1>
-        <p class="hero-sub">
-          AC Performance Horses está enfocado en el entrenamiento de caballos de alto rendimiento para
-          propietarios que exigen resultados, seriedad absoluta y trato discreto. Programas diseñados por
-          <strong>Alejandro Casillas</strong>, arrendador especializado en rienda charra.
-        </p>
+    </header>
 
-        <div class="hero-cta">
-          <!-- CAMBIA el número por el WhatsApp real -->
-          <a class="btn-primary" href="https://wa.me/5210000000000" target="_blank">
-            Agendar visita privada
-          </a>
-          <a class="btn-outline" href="#lista-espera">
-            Unir mi caballo a la lista de espera
-          </a>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+            <h1>Excelencia en Rienda Charra</h1>
+            <p>Tepatitlán de Morelos, Jalisco.</p>
+            <a href="#contacto" class="btn">Solicitar Ingreso 2025</a>
         </div>
+    </section>
 
-        <p class="hero-meta">
-          Clientes actuales: <strong>empresarios, alto mando militar y gobierno</strong>.  
-          Cupo limitado para mantener la calidad del entrenamiento.
-        </p>
-      </div>
-    </div>
-
-    <div class="hero-image">
-      <!-- REEMPLAZA src POR UNA FOTO EN TU REPO -->
-      <img
-        src="images/acph_calando.png"
-        alt="Alejandro Casillas entrenando caballo"
-        class="hero-image-img"
-      />
-      <div class="hero-tag">
-        <div class="hero-tag-title">Alejandro Casillas</div>
-        <div>
-          Arrendador de caballos de rienda charra. Enfoque en disciplina, elegancia y desempeño
-          consistente para competencia, exhibición y venta.
+    <section class="container bio-section">
+        <div class="bio-text reveal">
+            <h2>Tradición Refinada.</h2>
+            <p>Alejandro Casillas combina la herencia de la charrería con técnicas de acondicionamiento moderno. Nuestro enfoque no es forzar, sino convencer. Cada caballo es un atleta que merece un desarrollo físico y mental óptimo para ejecutar la cala perfecta.</p>
+            <br>
+            <a href="#filosofia" class="btn-secondary btn">Conocer Filosofía</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN ALEJANDRO -->
-  <section id="alejandro">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Alejandro Casillas</div>
-        <h2 class="section-title">Trayectoria & filosofía</h2>
-        <p class="section-sub">
-          Alejandro ha dedicado su vida a la doma y entrenamiento de caballos de rienda charra,
-          trabajando de forma cercana con propietarios que buscan un manejo profesional y resultados
-          medibles sin perder el respeto por el caballo.
-        </p>
-      </div>
-
-      <div class="two-column">
-        <div>
-          <p style="color: var(--text-muted); margin-bottom: 1rem;">
-            Aquí puedes extender la historia de Alejandro: años de experiencia, maestros con los que ha
-            trabajado, competencias, caballos destacados y referencias clave. El enfoque es claro:
-            seriedad, responsabilidad y una visión de largo plazo para cada caballo que entra al programa.
-          </p>
-          <p style="color: var(--text-muted);">
-            Puedes editar este texto después con datos específicos: logros, premios, eventos importantes,
-            exhibiciones privadas y ventas relevantes.
-          </p>
+        <div class="bio-image reveal">
+            <img src="acph_charro.png" alt="Alejandro Casillas Charro">
         </div>
-        <div class="card">
-          <h3>Highlights</h3>
-          <ul>
-            <li>● Especializado en caballos de rienda charra y alto rendimiento.</li>
-            <li>● Experiencia con caballos jóvenes, caballos de carácter fuerte y caballos para venta.</li>
-            <li>● Trabajo discreto con clientela de alto perfil: empresarios, gobierno y alto mando militar.</li>
-            <li>● Filosofía centrada en el bienestar del caballo y la claridad en los resultados al propietario.</li>
-          </ul>
+    </section>
+
+    <section class="programs-bg" id="programas">
+        <div class="container">
+            <h2 class="reveal">Programas de Entrenamiento</h2>
+            <div class="grid-3 reveal">
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="acph_walk.png" alt="Entrenamiento Potrillos">
+                    </div>
+                    <div class="card-body">
+                        <h3>Potrillos & Futurity</h3>
+                        <p>Programa especializado para potrillos de 2 y 3 años. Bases sólidas, confianza y preparación para los principales caladeros de México.</p>
+                    </div>
+                    <div class="card-link">Ver detalles</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="acph_calando.png" style="object-position: top;" alt="Caballos Open">
+                    </div>
+                    <div class="card-body">
+                        <h3>Caballos de Competencia</h3>
+                        <p>Mantenimiento y corrección para caballos terminados. Ajuste de lados, medios y punta raya para competencia de alto nivel.</p>
+                    </div>
+                    <div class="card-link">Ver detalles</div>
+                </div>
+
+                <div class="card" id="marketplace">
+                    <div class="card-img" style="background: var(--c-brown); display: flex; align-items: center; justify-content: center;">
+                       <span style="color: var(--c-cream); font-size: 2rem; font-weight: 300;">AC Marketplace</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Venta de Ejemplares</h3>
+                        <p>Selección exclusiva de caballos con registro y entrenamiento avanzado disponibles para compra.</p>
+                    </div>
+                    <div class="card-link">Ver catálogo</div>
+                </div>
+
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROGRAMAS -->
-  <section id="programas">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Programas</div>
-        <h2 class="section-title">Entrenamiento & objetivos</h2>
-        <p class="section-sub">
-          Cada caballo entra con un objetivo claro: competencia, venta, rehabilitación o formación
-          desde joven. Los planes se adaptan al temperamento y condición de cada ejemplar.
-        </p>
-      </div>
-
-      <div class="two-column">
-        <div class="card">
-          <h3>Tipos de programa</h3>
-          <ul>
-            <li>● Entrenamiento completo de rienda charra.</li>
-            <li>● Caballos en preparación para venta y exhibición privada.</li>
-            <li>● Reinicio de caballos con malas experiencias o trabajo previo deficiente.</li>
-            <li>● Caballos jóvenes: inicio correcto desde las bases.</li>
-          </ul>
+    <section class="feature-section" id="instalaciones">
+        <div class="feature-container">
+            <div class="feature-content reveal">
+                <h2>Instalaciones de Alto Rendimiento.</h2>
+                <p>Ubicados en el corazón de Los Altos, contamos con arena techada profesional, caminadoras, y caballerizas diseñadas para el máximo confort y descanso de los atletas equinos.</p>
+                <br>
+                <a href="#tour" style="color: var(--c-cream); text-decoration: underline;">Ver galería de instalaciones</a>
+            </div>
+            <div class="feature-img"></div>
         </div>
-        <div class="card">
-          <h3>Para el propietario</h3>
-          <ul>
-            <li>● Comunicación directa sobre el avance del caballo.</li>
-            <li>● Videos y actualizaciones periódicas (cuando el sistema de propietarios esté activo).</li>
-            <li>● Visitas programadas para ver el trabajo en pista.</li>
-            <li>● Transparencia en tiempos estimados según objetivo y carácter del caballo.</li>
-          </ul>
+    </section>
+
+    <section class="cta-section">
+        <div class="container reveal">
+            <h2 style="font-size: 3rem;">Únete al equipo.</h2>
+            <p style="max-width: 600px; margin: 0 auto 30px auto;">Actualmente tenemos lista de espera para nuevos ingresos. Regístrate para recibir notificación cuando se libere una caballeriza.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#registro" class="btn">Lista de Espera</a>
+                <a href="#login" class="btn btn-secondary">Log In Propietario</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- INSTALACIONES -->
-  <section id="instalaciones">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Instalaciones</div>
-        <h2 class="section-title">Espacio diseñado para el rendimiento</h2>
-        <p class="section-sub">
-          Las instalaciones están pensadas para que el caballo trabaje, descanse y se recupere en las
-          mejores condiciones posibles, manteniendo un ambiente controlado y seguro.
-        </p>
-      </div>
-
-      <div class="two-column">
-        <div>
-          <!-- AQUÍ PUEDES CAMBIAR POR UNA FOTO DE LAS INSTALACIONES -->
-          <div class="gallery-item" style="min-height: 230px;">
-            <img src="images/instalaciones-principal.jpg" alt="Instalaciones AC Performance Horses" />
-            <div class="gallery-caption">Instalaciones</div>
-          </div>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <p>Alejandro Casillas | AC Performance Horses</p>
+                <p>Tepatitlán de Morelos, Jalisco, MX.</p>
+            </div>
+            <div>
+                <img src="AC_logo_main.jpg" alt="Logo" style="height: 30px; opacity: 0.5;">
+            </div>
         </div>
-        <div class="card">
-          <h3>Qué encontrará su caballo</h3>
-          <ul>
-            <li>● Caballerizas amplias y ventiladas.</li>
-            <li>● Pista de trabajo para rienda y ejercicios de precisión.</li>
-            <li>● Áreas dedicadas a calentamiento, trabajo y enfriamiento.</li>
-            <li>● Opciones de hospedaje a corto, mediano y largo plazo.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- CABALLOS / GALERÍA -->
-  <section id="caballos">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Caballos</div>
-        <h2 class="section-title">En entrenamiento & referencias</h2>
-        <p class="section-sub">
-          Espacio para mostrar algunos de los caballos que han pasado por AC Performance Horses
-          o que actualmente se encuentran en programa de entrenamiento.
-        </p>
-      </div>
+    <script>
+        // Simple Intersection Observer para activar la clase .active cuando el elemento entra en pantalla
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
 
-      <div class="gallery-grid">
-        <!-- Reemplaza las rutas de estas imágenes por tus fotos reales -->
-        <div class="gallery-item">
-          <img src="images/caballo-1.jpg" alt="Caballo 1" />
-          <div class="gallery-caption">Caballo 1</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/caballo-2.jpg" alt="Caballo 2" />
-          <div class="gallery-caption">Caballo 2</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/caballo-3.jpg" alt="Caballo 3" />
-          <div class="gallery-caption">Caballo 3</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/caballo-4.jpg" alt="Caballo 4" />
-          <div class="gallery-caption">Caballo 4</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/caballo-5.jpg" alt="Caballo 5" />
-          <div class="gallery-caption">Caballo 5</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/caballo-6.jpg" alt="Caballo 6" />
-          <div class="gallery-caption">Caballo 6</div>
-        </div>
-      </div>
-    </div>
-  </section>
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Solo animar una vez
+                }
+            });
+        }, observerOptions);
 
-  <!-- MARKETPLACE -->
-  <section id="marketplace">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Marketplace</div>
-        <h2 class="section-title">Equipo & accesorios</h2>
-        <p class="section-sub">
-          Próximamente encontrarás una selección curada de equipo para caballo y jinete, elegida
-          directamente por Alejandro: cabezales, sillas, riendas y más, pensados para caballos de alto rendimiento.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Próximamente</h3>
-        <p>
-          Esta sección se conectará a una tienda en línea donde podrás adquirir equipo recomendado.
-          Cuando la tengas lista, cambia este bloque por un botón que lleve a tu e-commerce.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- LISTA DE ESPERA -->
-  <section id="lista-espera">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Lista de espera</div>
-        <h2 class="section-title">Reservar un lugar para mi caballo</h2>
-        <p class="section-sub">
-          El número de caballos en entrenamiento es limitado. Deja tus datos y la información básica
-          del caballo para ser considerado en la siguiente apertura de espacios.
-        </p>
-      </div>
-
-      <div class="two-column">
-        <div class="card">
-          <h3>Datos del propietario</h3>
-          <form class="waitlist-form">
-            <input type="text" name="nombre" placeholder="Nombre completo" required />
-            <input type="email" name="email" placeholder="Correo electrónico" required />
-            <input type="tel" name="telefono" placeholder="Teléfono / WhatsApp" />
-            <input type="text" name="caballo" placeholder="Nombre y edad del caballo" />
-            <select name="objetivo">
-              <option value="">Objetivo principal del entrenamiento</option>
-              <option>Competencia</option>
-              <option>Venta</option>
-              <option>Rehabilitación / readaptación</option>
-              <option>Caballo joven – iniciar trabajo</option>
-            </select>
-            <textarea name="detalles" placeholder="Notas adicionales (historial, temperamento, metas)…"></textarea>
-
-            <!-- Cuando tengas backend, cambia type="button" por type="submit" y agrega action/method -->
-            <button type="button" class="btn-primary">
-              Enviar solicitud (demo)
-            </button>
-          </form>
-          <p class="waitlist-note">
-            *Formulario demostrativo. Para contacto directo, utiliza el botón de WhatsApp o escribe a
-            <strong>info@acperformancehorses.com.mx</strong>.
-          </p>
-        </div>
-
-        <div>
-          <div class="card">
-            <h3>Contacto directo</h3>
-            <p>
-              Si prefieres hablar primero, puedes agendar una visita privada o una llamada para revisar
-              el caso de tu caballo, tiempos estimados y disponibilidad.
-            </p>
-            <p style="margin-top:0.5rem;">
-              WhatsApp: <strong>+52 1 XXX XXX XXXX</strong> (actualiza aquí el número real).
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOGIN / PROPIETARIOS -->
-  <section id="login">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Propietarios</div>
-        <h2 class="section-title">Área privada</h2>
-        <p class="section-sub">
-          Panel para propietarios donde podrán consultar avances del entrenamiento, videos,
-          calendario de trabajo y reportes de salud de cada caballo.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Acceso próximamente</h3>
-        <p style="margin-bottom: 0.7rem;">
-          Cuando tengas tu plataforma lista, aquí irá el formulario de inicio de sesión o el botón
-          que dirija a tu sistema.
-        </p>
-        <!-- Cambia el href cuando tengas la app -->
-        <a href="#" class="btn-outline">
-          Ir al panel de propietarios (demo)
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © <span>AC Performance Horses</span> · Entrenamiento profesional de caballos de rienda charra · Sitio demo en construcción.
-  </footer>
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 
 </body>
 </html>
