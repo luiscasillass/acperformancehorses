@@ -81,10 +81,10 @@
         }
         .btn-outline:hover { background: var(--c-brown); color: var(--c-white) !important; }
 
-        /* --- 5. HEADER (CORREGIDO) --- */
+        /* --- 5. HEADER (Logo Ajustado) --- */
         header {
             position: fixed; top: 0; left: 0; right: 0;
-            height: 90px; /* Aumentado un poco para el logo más grande */
+            height: 90px; 
             z-index: 1000;
             background: #F5F5F5; backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -92,12 +92,12 @@
         }
         .nav-container {
             max-width: 1200px; margin: 0 auto;
-            padding: 0 15px; /* REDUCIDO de 30px a 15px para pegar más a la izquierda */
+            padding: 0 15px; /* Pegado a la izquierda */
             height: 100%;
             display: flex; justify-content: space-between; align-items: center;
         }
         .logo img {
-            height: 70px; /* AUMENTADO de 55px a 70px */
+            height: 70px; /* Logo Grande */
             width: auto; display: block; transition: transform 0.3s ease;
         }
         .logo:hover img { transform: scale(1.05); }
@@ -120,7 +120,6 @@
         .hero-video {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover; object-position: center; z-index: 1;
-            transition: opacity 0.5s ease; 
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -218,7 +217,10 @@
     </header>
 
     <section class="hero">
-        <video id="hero-video-player" autoplay muted playsinline class="hero-video" poster="images/acph_calando.png"></video>
+        <video autoplay muted loop playsinline class="hero-video" poster="images/acph_calando.png">
+            <source src="images/video2.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
 
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
@@ -307,58 +309,13 @@
     </footer>
 
     <script>
-  const videoPlayer = document.getElementById('hero-video-player');
-
-  // Make autoplay more reliable across browsers
-  videoPlayer.muted = true;
-  videoPlayer.playsInline = true;
-
-  const videoPlaylist = [
-    "images/video1.mp4",
-    "images/video2.mp4",
-    "images/video3.mp4"
-  ];
-  let currentVideoIndex = 0;
-
-  function setAndPlay(i) {
-    currentVideoIndex = i % videoPlaylist.length;
-    // Optional cache-buster while testing; remove later
-    const src = videoPlaylist[currentVideoIndex] + '?v=' + Date.now();
-
-    videoPlayer.pause();
-    videoPlayer.src = src;
-    videoPlayer.load();
-
-    const p = videoPlayer.play();
-    if (p && typeof p.catch === 'function') {
-      p.catch(() => {
-        // If autoplay is blocked, show a tap-to-play overlay or fallback
-        console.log('Autoplay blocked — waiting for user gesture');
-      });
-    }
-  }
-
-  function playNextVideo() {
-    setAndPlay(currentVideoIndex + 1);
-  }
-
-  // Kick off the first video
-  setAndPlay(0);
-
-  // Advance on ended or on error
-  videoPlayer.addEventListener('ended', playNextVideo);
-  videoPlayer.addEventListener('error', () => {
-    console.error("Error loading:", videoPlayer.currentSrc);
-    playNextVideo();
-  });
-
-  // (Optional) allow swipe to advance on mobile
-  let sx = 0, ex = 0;
-  const hero = document.querySelector('.hero');
-  hero.addEventListener('touchstart', e => sx = e.changedTouches[0].screenX, {passive:true});
-  hero.addEventListener('touchend',   e => { ex = e.changedTouches[0].screenX; if (Math.abs(ex-sx) > 50) playNextVideo(); }, {passive:true});
-</script>
-
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>
