@@ -81,18 +81,25 @@
         }
         .btn-outline:hover { background: var(--c-brown); color: var(--c-white) !important; }
 
-        /* --- 5. HEADER --- */
+        /* --- 5. HEADER (CORREGIDO) --- */
         header {
-            position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 1000;
+            position: fixed; top: 0; left: 0; right: 0;
+            height: 90px; /* Aumentado un poco para el logo más grande */
+            z-index: 1000;
             background: #F5F5F5; backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);
             transition: all 0.4s ease;
         }
         .nav-container {
-            max-width: 1200px; margin: 0 auto; padding: 0 30px; height: 100%;
+            max-width: 1200px; margin: 0 auto;
+            padding: 0 15px; /* REDUCIDO de 30px a 15px para pegar más a la izquierda */
+            height: 100%;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .logo img { height: 55px; width: auto; display: block; transition: transform 0.3s ease; }
+        .logo img {
+            height: 70px; /* AUMENTADO de 55px a 70px */
+            width: auto; display: block; transition: transform 0.3s ease;
+        }
         .logo:hover img { transform: scale(1.05); }
 
         nav ul { display: flex; list-style: none; gap: 40px; }
@@ -113,7 +120,6 @@
         .hero-video {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover; object-position: center; z-index: 1;
-            /* Transición suave al cambiar de video */
             transition: opacity 0.5s ease; 
         }
         .hero-overlay {
@@ -312,7 +318,7 @@
         // 2. LOGICA DE PLAYLIST DE VIDEO + SWIPE
         const videoPlayer = document.getElementById('hero-video-player');
         
-        // --- NOMBRES EXACTOS DE TU REPOSITORIO ---
+        // --- ¡VERIFICA QUE ESTOS ARCHIVOS EXISTAN EN LA CARPETA 'images'! ---
         const videoPlaylist = [
             "images/video1.mp4",
             "images/video2.mp4",
@@ -328,19 +334,22 @@
                 currentVideoIndex = 0;
             }
             videoPlayer.src = videoPlaylist[currentVideoIndex];
-            videoPlayer.play().catch(e => console.log("Error al reproducir: ", e));
+            videoPlayer.play().catch(e => console.log("Error al reproducir (posiblemente bloqueado por navegador): ", e));
         }
 
-        // Cargar el primer video al iniciar
-        videoPlayer.src = videoPlaylist[0];
+        // Cargar el primer video al iniciar si existe la lista
+        if (videoPlaylist.length > 0) {
+             videoPlayer.src = videoPlaylist[0];
+        }
 
         // Evento: Cuando termina el video, sigue el otro
         videoPlayer.addEventListener('ended', playNextVideo);
 
-        // Evento: Error (si no encuentra un video, salta al siguiente)
+        // Evento: Error (si no encuentra un video, muestra el error en consola y trata de saltar)
         videoPlayer.addEventListener('error', function() {
-            console.log("No se encontró el video: " + videoPlaylist[currentVideoIndex]);
-            playNextVideo(); 
+            console.error("Error cargando el video: " + videoPlayer.src + ". Verifique que el archivo exista en la carpeta 'images'.");
+            // Opcional: intentar saltar al siguiente video si uno falla
+            // playNextVideo(); 
         });
 
         // 3. DETECCION DE SWIPE (DESLIZAR) EN MOVIL
