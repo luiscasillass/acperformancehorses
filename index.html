@@ -9,16 +9,16 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     
     <style>
-        /* --- 1. VARIABLES & LUXURY SETTINGS --- */
+        /* --- 1. VARIABLES --- */
         :root {
-            --c-gold: #FFF1AB;       /* Acento Crema/Dorado */
-            --c-brown: #614113;      /* Marrón Cuero Principal */
-            --c-dark-brown: #3b2609; /* Marrón Oscuro para hovers */
-            --c-black: #111111;      /* Negro Suave */
+            --c-gold: #FFF1AB;
+            --c-brown: #614113;
+            --c-dark-brown: #3b2609;
+            --c-black: #111111;
             --c-white: #FFFFFF;
-            --c-gray-light: #F5F5F7; /* Fondo Apple */
+            --c-gray-light: #F5F5F7;
             --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --ease-luxury: cubic-bezier(0.165, 0.84, 0.44, 1); /* Curva de animación ultra suave */
+            --ease-luxury: cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,269 +46,144 @@
 
         h2 { font-size: 3rem; font-weight: 600; margin-bottom: 25px; color: var(--c-brown); }
         h3 { font-size: 1.5rem; font-weight: 600; }
-        
-        p { 
-            font-size: 1.25rem; 
-            line-height: 1.7; 
-            color: #6e6e73; 
-            font-weight: 300; 
-        }
+        p { font-size: 1.25rem; line-height: 1.7; color: #6e6e73; font-weight: 300; }
 
         .subtitle-caps {
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--c-gold);
-            margin-bottom: 15px;
-            display: block;
+            text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem;
+            font-weight: 700; color: var(--c-gold); margin-bottom: 15px; display: block;
         }
 
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
         /* --- 3. ANIMATIONS --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1.2s var(--ease-luxury);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s var(--ease-luxury); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* --- 4. UI COMPONENTS --- */
         .btn {
-            display: inline-block;
-            padding: 16px 40px;
-            background-color: var(--c-brown);
-            color: var(--c-white) !important;
-            border-radius: 99px;
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            transition: all 0.4s var(--ease-luxury);
-            border: 1px solid transparent;
-            box-shadow: 0 4px 15px rgba(97, 65, 19, 0.2);
+            display: inline-block; padding: 16px 40px; background-color: var(--c-brown);
+            color: var(--c-white) !important; border-radius: 99px; font-size: 1rem;
+            font-weight: 500; letter-spacing: 0.02em; transition: all 0.4s var(--ease-luxury);
+            border: 1px solid transparent; box-shadow: 0 4px 15px rgba(97, 65, 19, 0.2);
         }
         .btn:hover {
-            transform: scale(1.03);
-            background-color: var(--c-dark-brown);
+            transform: scale(1.03); background-color: var(--c-dark-brown);
             box-shadow: 0 10px 25px rgba(97, 65, 19, 0.3);
         }
-        
         .btn-glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .btn-glass:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
+        .btn-glass:hover { background: rgba(255, 255, 255, 0.2); }
 
         .btn-outline {
-            background: transparent;
-            border: 1px solid var(--c-brown);
-            color: var(--c-brown) !important;
+            background: transparent; border: 1px solid var(--c-brown); color: var(--c-brown) !important;
         }
-        .btn-outline:hover {
-            background: var(--c-brown);
-            color: var(--c-white) !important;
-        }
+        .btn-outline:hover { background: var(--c-brown); color: var(--c-white) !important; }
 
         /* --- 5. HEADER --- */
         header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 80px;
-            z-index: 1000;
-            background: #F5F5F5;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 1000;
+            background: #F5F5F5; backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);
             transition: all 0.4s ease;
         }
-
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1200px; margin: 0 auto; padding: 0 30px; height: 100%;
+            display: flex; justify-content: space-between; align-items: center;
         }
-
-        .logo img {
-            height: 55px;
-            width: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
+        .logo img { height: 55px; width: auto; display: block; transition: transform 0.3s ease; }
         .logo:hover img { transform: scale(1.05); }
 
         nav ul { display: flex; list-style: none; gap: 40px; }
-        nav a {
-            font-size: 0.9rem;
-            color: #333;
-            font-weight: 500;
-            position: relative;
-        }
+        nav a { font-size: 0.9rem; color: #333; font-weight: 500; position: relative; }
         nav a::after {
-            content: '';
-            position: absolute;
-            width: 0; height: 2px;
-            bottom: -5px; left: 0;
-            background-color: var(--c-brown);
-            transition: width 0.3s ease;
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
+            background-color: var(--c-brown); transition: width 0.3s ease;
         }
         nav a:hover::after { width: 100%; }
         nav a:hover { color: var(--c-brown); }
 
-        /* --- 6. HERO SECTION (VIDEO PLAYLIST) --- */
+        /* --- 6. HERO SECTION --- */
         .hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            background-color: #000; /* Fondo negro por si tarda en cargar */
+            position: relative; height: 100vh; width: 100%; display: flex;
+            align-items: center; justify-content: center; text-align: center;
+            overflow: hidden; background-color: #000;
         }
-
         .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            object-position: center;
-            z-index: 1;
-            transition: opacity 0.5s ease; /* Suaviza el cambio */
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center; z-index: 1;
+            /* Transición suave al cambiar de video */
+            transition: opacity 0.5s ease; 
         }
-
         .hero-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
             z-index: 2;
         }
-
         .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 900px;
-            padding: 0 20px;
-            margin-top: 60px;
+            position: relative; z-index: 3; max-width: 900px; padding: 0 20px; margin-top: 60px;
         }
-
         .hero-location {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 40px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-size: 1.1rem; color: rgba(255,255,255,0.9); margin-bottom: 40px;
+            font-weight: 400; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* --- 7. SECTIONS & GRID --- */
+        /* --- 7. SECTIONS --- */
         section { padding: 140px 0; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
 
-        /* Bio Section */
-        .bio-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
-            align-items: center;
-        }
+        .bio-section { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
         .bio-image {
-            position: relative;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-            height: 600px;
+            position: relative; border-radius: 4px; overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2); height: 600px;
         }
-        .bio-image img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 1s ease;
-        }
+        .bio-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s ease; }
         .bio-image:hover img { transform: scale(1.05); }
 
-        /* Programs Grid */
         .programs-bg { background-color: var(--c-gray-light); }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 60px; }
 
         .card {
-            background: var(--c-white);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.5s var(--ease-luxury);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            display: flex; flex-direction: column;
-            cursor: pointer;
+            background: var(--c-white); border-radius: 12px; overflow: hidden;
+            transition: all 0.5s var(--ease-luxury); box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex; flex-direction: column; cursor: pointer;
         }
         .card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
-        
         .card-img { height: 280px; width: 100%; overflow: hidden; position: relative; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .card:hover .card-img img { transform: scale(1.1); }
-
         .card-body { padding: 40px 30px; flex-grow: 1; }
         .card-body h3 { margin-bottom: 15px; color: var(--c-brown); }
-        
         .card-link {
-            padding: 25px 30px;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
-            color: var(--c-brown);
+            padding: 25px 30px; border-top: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.9rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--c-brown);
         }
 
-        /* Feature Section */
         .feature-section { padding: 0; }
-        .feature-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 800px;
-        }
+        .feature-container { display: grid; grid-template-columns: 1fr 1fr; min-height: 800px; }
         .feature-img {
             background-image: url('images/arena1.jpg');
             background-size: cover; background-position: center;
         }
         .feature-content {
-            background-color: #0a0a0a;
-            color: var(--c-white);
-            display: flex; flex-direction: column; justify-content: center;
-            padding: 80px;
+            background-color: #0a0a0a; color: var(--c-white);
+            display: flex; flex-direction: column; justify-content: center; padding: 80px;
         }
         .feature-content h2 { color: var(--c-gold); }
         .feature-content p { color: rgba(255,255,255,0.6); border-left: 1px solid var(--c-brown); padding-left: 30px; }
 
-        /* CTA */
         .cta-section { text-align: center; }
-
-        /* Footer */
         footer {
-            background-color: var(--c-gray-light);
-            padding: 80px 0;
-            border-top: 1px solid #e1e1e1;
-            text-align: center;
+            background-color: var(--c-gray-light); padding: 80px 0;
+            border-top: 1px solid #e1e1e1; text-align: center;
         }
         .footer-logo { height: 40px; opacity: 0.8; margin-bottom: 20px; }
         .copyright { font-size: 0.8rem; color: #999; }
 
-        /* Responsive */
         @media (max-width: 900px) {
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.2rem; }
+            h1 { font-size: 3rem; } h2 { font-size: 2.2rem; }
             .nav-container ul { display: none; }
             .bio-section { grid-template-columns: 1fr; gap: 50px; }
             .feature-container { grid-template-columns: 1fr; }
@@ -337,14 +212,11 @@
     </header>
 
     <section class="hero">
-        <video id="hero-video-player" autoplay muted playsinline class="hero-video" poster="images/acph_calando.png">
-            <source src="images/video1.mp4" type="video/mp4">
-            Tu navegador no soporta videos HTML5.
-        </video>
+        <video id="hero-video-player" autoplay muted playsinline class="hero-video" poster="images/acph_calando.png"></video>
 
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
-            <span class="subtitle-caps"></span>
+            <span class="subtitle-caps">The Art of Reining</span>
             <h1>EXCELENCIA EN<br>RIENDA CHARRA</h1>
             <p class="hero-location">Tepatitlán de Morelos, Jalisco, MX.</p>
             <a href="#contacto" class="btn btn-glass">Solicitar Ingreso 2025</a>
@@ -375,35 +247,20 @@
             
             <div class="grid-3 reveal">
                 <div class="card">
-                    <div class="card-img">
-                        <img src="images/acph_walk.png" alt="Futurity Training">
-                    </div>
-                    <div class="card-body">
-                        <h3>Potrillos & Futurity</h3>
-                        <p>Programa de iniciación especializado para prospectos de 2 y 3 años. Construimos confianza y suavidad desde el primer contacto.</p>
-                    </div>
+                    <div class="card-img"><img src="images/acph_walk.png" alt="Futurity Training"></div>
+                    <div class="card-body"><h3>Potrillos & Futurity</h3><p>Programa de iniciación especializado para prospectos de 2 y 3 años.</p></div>
                     <div class="card-link">Ver Proceso</div>
                 </div>
-
                 <div class="card">
-                    <div class="card-img">
-                        <img src="images/acph_calando.png" style="object-position: top center;" alt="Open Horses">
-                    </div>
-                    <div class="card-body">
-                        <h3>Caballos de Competencia</h3>
-                        <p>Corrección y mantenimiento para caballos terminados. Perfeccionamiento de lados, medios y entrada de patas.</p>
-                    </div>
+                    <div class="card-img"><img src="images/acph_calando.png" style="object-position: top center;" alt="Open Horses"></div>
+                    <div class="card-body"><h3>Caballos de Competencia</h3><p>Corrección y mantenimiento para caballos terminados.</p></div>
                     <div class="card-link">Ver Resultados</div>
                 </div>
-
                 <div class="card" id="marketplace">
                     <div class="card-img" style="background-color: var(--c-brown); display: flex; align-items: center; justify-content: center;">
                        <span style="color: var(--c-gold); font-size: 2.5rem; font-family: serif;">AC</span>
                     </div>
-                    <div class="card-body">
-                        <h3>Marketplace Exclusivo</h3>
-                        <p>Acceso a ejemplares seleccionados con registro y entrenamiento avanzado, listos para pista o reproducción.</p>
-                    </div>
+                    <div class="card-body"><h3>Marketplace Exclusivo</h3><p>Acceso a ejemplares seleccionados.</p></div>
                     <div class="card-link">Explorar Catálogo</div>
                 </div>
             </div>
@@ -415,7 +272,7 @@
             <div class="feature-content reveal">
                 <span class="subtitle-caps">Infraestructura</span>
                 <h2>Instalaciones de clase mundial.</h2>
-                <p>Ubicados en el corazón de los Altos de Jalisco, el centro está diseñado para el bienestar total del caballo. Arena techada profesional, caminadoras automáticas y caballerizas de alto flujo para el descanso óptimo del atleta.</p>
+                <p>Ubicados en el corazón de los Altos de Jalisco, el centro está diseñado para el bienestar total del caballo.</p>
                 <br><br>
                 <a href="#tour" style="color: var(--c-white); text-decoration: underline; opacity: 0.7;">Ver galería completa →</a>
             </div>
@@ -426,7 +283,7 @@
     <section class="cta-section">
         <div class="container reveal">
             <h2 style="font-size: 3.5rem;">Únete al Legado.</h2>
-            <p style="max-width: 600px; margin: 0 auto 40px auto;">Nuestras caballerizas son limitadas para garantizar la atención personalizada de cada caballo. Regístrate en la lista de espera.</p>
+            <p style="max-width: 600px; margin: 0 auto 40px auto;">Regístrate en la lista de espera.</p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
                 <a href="#registro" class="btn">Aplicar a Lista de Espera</a>
                 <a href="#login" class="btn btn-outline">Log In Propietario</a>
@@ -447,17 +304,15 @@
         // 1. ANIMACIÓN SCROLL REVEAL
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('active');
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // 2. LOGICA DE PLAYLIST DE VIDEO
+        // 2. LOGICA DE PLAYLIST DE VIDEO + SWIPE
         const videoPlayer = document.getElementById('hero-video-player');
         
-        // AGREGA AQUÍ TUS VIDEOS EN ORDEN:
+        // --- NOMBRES EXACTOS DE TU REPOSITORIO ---
         const videoPlaylist = [
             "images/video1.mp4",
             "images/video2.mp4",
@@ -466,20 +321,49 @@
         
         let currentVideoIndex = 0;
 
-        // Escuchar cuando el video termina para poner el siguiente
-        videoPlayer.addEventListener('ended', function() {
-            // Avanzar al siguiente índice
+        // Función para cambiar video
+        function playNextVideo() {
             currentVideoIndex++;
-            
-            // Si llegamos al final de la lista, volver al principio (0)
             if (currentVideoIndex >= videoPlaylist.length) {
                 currentVideoIndex = 0;
             }
-
-            // Cambiar la fuente del video y reproducir
             videoPlayer.src = videoPlaylist[currentVideoIndex];
-            videoPlayer.play();
+            videoPlayer.play().catch(e => console.log("Error al reproducir: ", e));
+        }
+
+        // Cargar el primer video al iniciar
+        videoPlayer.src = videoPlaylist[0];
+
+        // Evento: Cuando termina el video, sigue el otro
+        videoPlayer.addEventListener('ended', playNextVideo);
+
+        // Evento: Error (si no encuentra un video, salta al siguiente)
+        videoPlayer.addEventListener('error', function() {
+            console.log("No se encontró el video: " + videoPlaylist[currentVideoIndex]);
+            playNextVideo(); 
         });
+
+        // 3. DETECCION DE SWIPE (DESLIZAR) EN MOVIL
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        const heroSection = document.querySelector('.hero');
+
+        heroSection.addEventListener('touchstart', function(event) {
+            touchstartX = event.changedTouches[0].screenX;
+        }, false);
+
+        heroSection.addEventListener('touchend', function(event) {
+            touchendX = event.changedTouches[0].screenX;
+            handleGesture();
+        }, false);
+
+        function handleGesture() {
+            // Si desliza a la derecha (o izquierda) más de 50 pixeles
+            if (Math.abs(touchendX - touchstartX) > 50) {
+                playNextVideo();
+            }
+        }
     </script>
 
 </body>
