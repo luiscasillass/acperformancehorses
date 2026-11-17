@@ -26,21 +26,21 @@
     />
     <link rel="icon" href="images/favicon.png" />
     <link rel="stylesheet" href="archivo.css?v=1" />
+  <link rel="stylesheet" href="modulos.css?v=1">
   </head>
   <body>
     <a class="skip" href="#contenido">Ir al contenido</a>
-    <header class="mast">
-      <a class="wordmark" href="index.html"
-        ><img src="images/ac-monogram.png" alt="" width="50" height="50" /><span
-          >AC Performance Horses</span
-        ></a
-      >
+    <header class="ac-header">
+      <a class="ac-brand" href="index.html"><img src="images/ac-monogram.png" width="44" height="44" alt="">AC Performance Horses</a>
       <nav aria-label="Principal">
-        <a href="index.html">Alejandro</a
-        ><a href="ejemplares.html" aria-current="page">Ejemplares</a
-        ><a href="programas.html">Entrenamiento</a
-        ><a href="marketplace.html">Marketplace</a
-        ><a href="index.html#patrocinadores">Patrocinadores</a>
+        <a href="ejemplares.html" aria-current="page">Ejemplares</a>
+        <a href="caballos.html">Caballos</a>
+        <a href="programas.html">Entrenamiento</a>
+        <a href="instalaciones.html">Instalaciones</a>
+        <a href="palmares.html">Palmarés</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="patrocinadores.html">Patrocinadores</a>
+        <a href="propietarios.html" class="ac-owners">Propietarios</a>
       </nav>
     </header>
     <main id="contenido">
@@ -52,6 +52,9 @@
           Cada ficha enlaza a la publicación donde puedes ver al ejemplar.
         </p>
       </section>
+      <section class="wrap module-index horse-index" aria-label="Selección de ejemplares"><a class="module-tile" href="moro.html"><img src="images/ejemplar-moro-real.png" loading="lazy" alt=""><span><small>Fotografía del archivo AC</small><strong>Ejemplar moro</strong></span></a>
+<a class="module-tile" href="lucero.html"><img src="images/ejemplar-palomino-demo.png" loading="lazy" alt=""><span><small>Ficha de demostración</small><strong>Lucero AC</strong></span></a>
+<a class="module-tile" href="soberana.html"><img src="images/ejemplar-tordillo-demo.png" loading="lazy" alt=""><span><small>Ficha de demostración</small><strong>Soberana AC</strong></span></a></section>
       <section class="wrap catalog" aria-label="Archivo de videos">
         <article class="stud">
           <h2>Olaf</h2>
@@ -127,7 +130,7 @@
       </section>
       <section class="paper wrap" id="palmares">
         <p class="kicker">Bitácora de competencia</p>
-        <h2>Resultados en pista</h2>
+        <h2>Resultados en pista</h2><a class="line" href="palmares.html">Ver campeonatos y premios <span aria-hidden="true">↗</span></a>
         <article class="row">
           <time datetime="2026-03-26">26 mar 2026</time>
           <div>

@@ -1,0 +1,38 @@
+.ac-header {
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:.6rem 1.5rem; padding:1rem max(4%, calc((100vw - 1480px)/2));
+  background:#f7f6f4; color:#402a1f; border-bottom:1px solid #b39480;
+}
+.ac-header a { color:inherit; text-decoration:none; }
+.ac-brand { display:flex; align-items:center; gap:.6rem; font:500 1.3rem/1.2 Georgia,serif; }
+.ac-brand img { width:44px; height:44px; object-fit:contain; mix-blend-mode:multiply; }
+.ac-header nav { display:flex; flex-wrap:wrap; align-items:center; gap:.35rem clamp(.65rem,1.25vw,1.2rem); }
+.ac-header nav a { font:600 .83rem/1.5 Arial,sans-serif; padding:.35rem 0; }
+.ac-header nav a:is(:hover,[aria-current]) { text-decoration:underline; text-underline-offset:.25rem; }
+.ac-header nav .ac-owners { padding:.42rem .8rem; background:#402a1f; color:#fff; }
+.ac-header + main > .page-hero { margin-top:0; }
+.module-index { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(.8rem,2.2vw,2rem); padding-block:clamp(2.5rem,5vw,5rem); }
+.module-tile { display:block; color:inherit; text-decoration:none; border-bottom:1px solid #b39480; }
+.module-tile img { width:100%; aspect-ratio:4/3; object-fit:cover; }
+.module-tile span { display:block; padding:1rem 0; }
+.module-tile small,.module-tile strong { display:block; }
+.module-tile small { font-size:.82rem; margin-bottom:.4rem; }
+.module-tile strong { font:450 clamp(1.65rem,3.3vw,3.5rem)/1.12 var(--serif); }
+.horse-detail { padding-block:clamp(2.5rem,6vw,6rem); display:grid; grid-template-columns:1.2fr 1fr; gap:5vw; align-items:center; }
+.horse-detail img { width:100%; }
+.horse-detail h1 { font-size:clamp(3rem,6vw,6rem); }
+.horse-detail .kicker { margin-top:2rem; }
+.horse-detail dl { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
+.horse-detail dl div { padding-top:.5rem; border-top:1px solid #b39480; }
+.horse-detail dt { font-size:.8rem; }
+.horse-detail dd { margin:0; }
+#solicitud-lista[hidden] { display:none; }
+#solicitud-texto { min-height:12rem; }
+@media(max-width:720px) {
+  .ac-header { padding:.7rem 5%; }
+  .ac-brand img { width:34px; height:34px; }
+  .ac-header nav { gap:.12rem .85rem; }
+  .ac-header nav a { font-size:.8rem; }
+  .module-index,.horse-detail { grid-template-columns:1fr; }
+  .module-tile img { aspect-ratio:16/9; }
+}

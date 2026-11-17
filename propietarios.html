@@ -17,28 +17,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=6">
     <title>Propietarios | AC Performance Horses</title>
-</head>
+<link rel="stylesheet" href="modulos.css?v=1">
+  </head>
 <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <header class="site-header" data-header><div class="container nav-shell">
-        <a class="brand" href="index.html" aria-label="AC Performance Horses, inicio"><img class="brand-mark" src="images/ac-monogram.png" alt="" width="48" height="48"><span class="brand-copy"><span class="brand-name">AC PERFORMANCE HORSES</span><span class="brand-discipline">Rienda charra · México</span></span></a>
-        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="main-navigation" aria-expanded="false"><span></span><span></span></button>
-        <nav class="desktop-nav" id="main-navigation" aria-label="Navegación principal"><a href="programas.html">Programas</a><a href="instalaciones.html">Instalaciones</a><a href="caballos.html">Caballos</a><a href="ejemplares.html">Ejemplares</a><a href="marketplace.html">Marketplace</a><a class="owner-link" href="propietarios.html" aria-current="page">Propietarios</a></nav>
-    </div></header>
+    <header class="ac-header">
+      <a class="ac-brand" href="index.html"><img src="images/ac-monogram.png" width="44" height="44" alt="">AC Performance Horses</a>
+      <nav aria-label="Principal">
+        <a href="ejemplares.html">Ejemplares</a>
+        <a href="caballos.html">Caballos</a>
+        <a href="programas.html">Entrenamiento</a>
+        <a href="instalaciones.html">Instalaciones</a>
+        <a href="palmares.html">Palmarés</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="patrocinadores.html">Patrocinadores</a>
+        <a href="propietarios.html" aria-current="page" class="ac-owners">Propietarios</a>
+      </nav>
+    </header>
 
     <main id="contenido">
         <section class="page-hero page-hero--solid" aria-labelledby="hero-title">
-            <div class="page-hero-content"><p class="eyebrow">Experiencia privada AC</p><h1 id="hero-title">Propietarios</h1><p>Consultas sobre entrenamiento y seguimiento para propietarios.</p></div>
+            <div class="page-hero-content"><p class="eyebrow">Experiencia privada AC</p><h1 id="hero-title">Propietarios</h1><p>El privilegio de conocer el proceso, entender cada decisión y acompañar a tu caballo desde cualquier lugar.</p></div>
         </section>
 
         <section class="section" id="lista-espera" aria-labelledby="lista-title">
-            <div class="container waitlist-layout"><div class="waitlist-copy"><p class="eyebrow">Entrenamiento en Tepatitlán</p><h2 id="lista-title">Traer un caballo a AC</h2></div>
-            <div><p class="lead">Para consultar espacio, escribe a Alejandro con la edad del caballo, su trabajo actual y la fecha en que te gustaría traerlo. Si tienes un video reciente, inclúyelo en el mensaje.</p><a class="button" href="https://www.instagram.com/ale_casillass/">Contactar a Alejandro</a></div></div>
+            <div class="container waitlist-layout">
+                <div class="waitlist-copy reveal">
+                    <p class="eyebrow">Acceso por invitación</p><h2 id="lista-title">Tu lugar comienza aquí.</h2>
+                    <p>Buscamos propietarios que valoren el proceso tanto como el resultado. Cuéntanos qué quieres construir y te contactaremos cuando se abra el siguiente espacio.</p>
+                    <ul class="waitlist-points"><li>Valoración inicial y objetivos de trabajo.</li><li>Seguimiento visual y comunicación directa.</li><li>Contexto administrativo en un mismo espacio.</li></ul>
+                </div>
+                <form class="waitlist-form reveal" id="solicitud-propietarios">
+                    <div class="form-header"><h3>Solicita una invitación</h3><p>Prepara tu solicitud y compártela con Alejandro por mensaje directo para consultar un espacio.</p></div>
+                    <div class="form-grid">
+                        <div class="form-field"><label for="nombre">Nombre completo</label><input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required></div>
+                        <div class="form-field"><label for="email">Correo electrónico</label><input id="email" name="email" type="email" autocomplete="email" placeholder="nombre@correo.com" required></div>
+                        <div class="form-field"><label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" placeholder="+52 000 000 0000" required></div>
+                        <div class="form-field"><label for="ciudad">Ciudad</label><input id="ciudad" name="ciudad" type="text" autocomplete="address-level2" placeholder="Ciudad, Estado" required></div>
+                        <div class="form-field"><label for="caballos">Número de caballos</label><select id="caballos" name="caballos" required><option value="">Selecciona</option><option>1 caballo</option><option>2 a 3 caballos</option><option>4 o más caballos</option><option>Aún no tengo caballo</option></select></div>
+                        <div class="form-field"><label for="interes">Interés principal</label><select id="interes" name="interes" required><option value="">Selecciona</option><option>Entrenamiento</option><option>Preparación para competencia</option><option>Arrendamiento de ejemplar</option><option>Selección o asesoría</option></select></div>
+                        <div class="form-field form-field--wide"><label for="etapa">Etapa actual</label><select id="etapa" name="etapa" required><option value="">Selecciona la opción más cercana</option><option>Busco iniciar un proyecto</option><option>Mi caballo está en formación</option><option>Mi caballo ya compite</option><option>Busco cambiar de programa</option></select></div>
+                        <div class="form-field form-field--wide"><label for="mensaje">¿Qué quieres lograr?</label><textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu caballo, experiencia y objetivos."></textarea></div>
+                        <label class="form-consent"><input type="checkbox" name="consentimiento" required><span>Acepto ser contactado por AC Performance Horses respecto a mi solicitud y entiendo que el acceso está sujeto a valoración y disponibilidad.</span></label>
+                        <div class="form-actions"><button class="button" type="submit">Preparar solicitud</button><span class="form-mode">Podrás revisar el mensaje antes de enviarlo.</span></div>
+                        <div id="solicitud-lista" class="form-field form-field--wide" hidden><label for="solicitud-texto">Tu solicitud para Alejandro</label><textarea id="solicitud-texto" rows="8" readonly></textarea><button class="button" type="button" id="copiar-solicitud">Copiar solicitud</button><p role="status" id="copia-estado"></p><a class="text-link" href="https://www.instagram.com/ale_casillass/">Abrir Instagram de Ale para enviarla</a></div>
+                    </div>
+                </form>
+            </div>
         </section>
 
         <section class="section app-showcase" aria-labelledby="app-title">
             <div class="container">
-                <div class="section-heading section-heading--split reveal"><div><p class="eyebrow eyebrow--light">La experiencia AC</p><h2 id="app-title">Vista previa del seguimiento</h2></div><p class="lead">Estas pantallas ilustran cómo se podrían consultar videos de entrenamiento, notas y gastos por caballo. Los datos son de demostración.</p></div>
+                <div class="section-heading section-heading--split reveal"><div><p class="eyebrow eyebrow--light">La experiencia AC</p><h2 id="app-title">Tu caballo. Su proceso. Todo en un solo lugar.</h2></div><p class="lead">Una vista privada pensada para eliminar la distancia: avances frecuentes, conversación con el entrenador y claridad administrativa.</p></div>
                 <div class="privilege-grid reveal">
                     <article class="privilege"><small>01 · Seguimiento</small><h3>Videos y fotografías</h3><p>Actualizaciones frecuentes para observar el trabajo y entender cada avance.</p></article>
                     <article class="privilege"><small>02 · Cercanía</small><h3>Comunicación directa</h3><p>Notas, decisiones y conversaciones organizadas alrededor de cada caballo.</p></article>
@@ -101,7 +131,7 @@
             </div>
         </div></section>
 
-        <section class="closing" aria-labelledby="cierre-title"><img class="closing-media" src="images/competition-portrait.png" alt="Propietario y caballo en el entorno de la charrería" loading="lazy"><div class="closing-content reveal"><p class="eyebrow eyebrow--light eyebrow--center">Acceso limitado</p><h2 id="cierre-title">Consulta sobre tu caballo.</h2><p>Escribe a Alejandro para preguntar por una valoración y disponibilidad.</p><div class="actions"><a class="button button--light" href="#lista-espera">Consultar espacio</a><a class="button button--ghost" href="ejemplares.html">Explorar ejemplares</a></div></div></section>
+        <section class="closing" aria-labelledby="cierre-title"><img class="closing-media" src="images/competition-portrait.png" alt="Propietario y caballo en el entorno de la charrería" loading="lazy"><div class="closing-content reveal"><p class="eyebrow eyebrow--light eyebrow--center">Acceso limitado</p><h2 id="cierre-title">No mires el proceso desde lejos.</h2><p>Forma parte de la lista de espera para conocer disponibilidad, valoración y próximos espacios en AC.</p><div class="actions"><a class="button button--light" href="#lista-espera">Solicitar invitación</a><a class="button button--ghost" href="ejemplares.html">Explorar ejemplares</a></div></div></section>
     </main>
 
     <footer class="site-footer"><div class="container"><div class="footer-top">
@@ -111,5 +141,6 @@
         <div class="footer-column"><h3>Propietarios</h3><a href="propietarios.html">Experiencia privada</a><a href="propietarios.html#lista-espera">Lista de espera</a><span>Tepatitlán, Jalisco</span></div>
     </div><div class="footer-bottom"><span>© <span data-year></span> AC Performance Horses</span><span>Tradición · Técnica · Alto rendimiento</span></div></div></footer>
     <script src="site.js?v=3"></script>
+<script src="propietarios.js?v=1"></script>
 </body>
 </html>

@@ -23,21 +23,21 @@
     <link rel="canonical" href="https://acperformancehorses.com.mx/" />
     <link rel="icon" href="images/favicon.png" />
     <link rel="stylesheet" href="archivo.css?v=1" />
+  <link rel="stylesheet" href="modulos.css?v=1">
   </head>
   <body>
     <a class="skip" href="#contenido">Ir al contenido</a>
-    <header class="mast">
-      <a class="wordmark" href="index.html"
-        ><img src="images/ac-monogram.png" alt="" width="50" height="50" /><span
-          >AC Performance Horses</span
-        ></a
-      >
+    <header class="ac-header">
+      <a class="ac-brand" href="index.html"><img src="images/ac-monogram.png" width="44" height="44" alt="">AC Performance Horses</a>
       <nav aria-label="Principal">
-        <a href="index.html" aria-current="page">Alejandro</a
-        ><a href="ejemplares.html">Ejemplares</a
-        ><a href="programas.html">Entrenamiento</a
-        ><a href="marketplace.html">Marketplace</a
-        ><a href="index.html#patrocinadores">Patrocinadores</a>
+        <a href="ejemplares.html">Ejemplares</a>
+        <a href="caballos.html">Caballos</a>
+        <a href="programas.html">Entrenamiento</a>
+        <a href="instalaciones.html">Instalaciones</a>
+        <a href="palmares.html">Palmarés</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="patrocinadores.html">Patrocinadores</a>
+        <a href="propietarios.html" class="ac-owners">Propietarios</a>
       </nav>
     </header>
     <main id="contenido">
@@ -48,7 +48,7 @@
           <p>
             Entrenador de caballos cuarto de milla en Tepatitlán de Morelos.
           </p>
-          <a class="coverlink" href="#archivo"
+          <a class="coverlink" href="ejemplares.html"
             >Ver caballos en trabajo <span>↓</span></a
           >
         </div>
@@ -101,7 +101,12 @@
           >
         </div>
       </section>
-      <section class="ink" id="archivo">
+      <section class="wrap module-index" aria-label="Visita AC">
+<a class="module-tile" href="ejemplares.html"><img src="images/ejemplar-moro-real.png" loading="lazy" alt=""><span><small>El moro y el archivo de cuadra</small><strong>Ejemplares</strong></span></a>
+<a class="module-tile" href="instalaciones.html"><img src="images/instalaciones-pista-atardecer.jpg" loading="lazy" alt=""><span><small>Pistas y caballerizas</small><strong>Instalaciones</strong></span></a>
+<a class="module-tile" href="propietarios.html"><img src="images/training-field-calm.webp" loading="lazy" alt=""><span><small>Seguimiento y solicitudes de ingreso</small><strong>Propietarios</strong></span></a>
+</section>
+<section class="ink" id="archivo">
         <div class="wrap">
           <div class="sectionhead">
             <div>
@@ -150,41 +155,7 @@
           </article>
         </div>
       </section>
-      <section class="paper wrap" id="palmares">
-        <p class="kicker">Bitácora de competencia</p>
-        <h2>Resultados en pista</h2>
-        <article class="row">
-          <time datetime="2026-03-26">26 mar 2026</time>
-          <div>
-            <h3>Valentino</h3>
-            <p>
-              Tercer lugar compartido en Intermedia, con 46 puntos. Segundo
-              Torneo VIP, Jesús María, Aguascalientes.
-            </p>
-          </div>
-          <a
-            class="line"
-            href="https://vozcharra.com/2026/03/26/emocionante-arranque-del-segundo-torneo-vip-2026-en-aguascalientes/"
-            >Leer crónica <span aria-hidden="true">↗</span></a
-          >
-        </article>
-        <article class="row">
-          <time datetime="2025-05-31">31 may 2025</time>
-          <div>
-            <h3>Gunnaspotya</h3>
-            <p>
-              Segundo lugar en la eliminatoria Intermedia del Caladero de
-              Excelencia, Ciudad de México. El circuito registró 56 positivos y
-              cuatro de infracción.
-            </p>
-          </div>
-          <a
-            class="line"
-            href="https://excelenciacharra.com/fernando-sandoval-se-adelanto-en-el-caladero-de-excelencia/"
-            >Ver resultado <span aria-hidden="true">↗</span></a
-          >
-        </article>
-      </section>
+      <section class="paper wrap" id="palmares"><p class="kicker">Palmarés</p><h2>Campeón con Pirata</h2><p class="lead">Ale ganó la primera edición del Duelo de Maestros en Texas. Su palmarés también recoge el cocampeonato de la primera fase de Excelencia Charra y sus resultados con Valentino y Gunnaspotya.</p><a class="line" href="palmares.html">Ver premios y competencias <span aria-hidden="true">↗</span></a></section>
       <section id="disponibilidad" class="band">
         <div class="wrap bandin">
           <div>
@@ -205,7 +176,7 @@
       <section id="patrocinadores" class="sponsors wrap">
         <p class="kicker">Patrocinadores y colaboraciones</p>
         <div>
-          <h2>West Point Hats</h2>
+          <h2>West Point Hats</h2><a class="line" href="patrocinadores.html">Ver colaboraciones <span aria-hidden="true">↗</span></a>
           <p>
             La marca aparece junto a Ale en los videos de Cangrejo y Lapua Is
             Red.
