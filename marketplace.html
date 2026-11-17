@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marketplace de caballos | AC Performance Horses</title>
+    <meta
+      name="description"
+      content="Consulta disponibilidad de caballos de rienda charra con Alejandro Casillas."
+    />
+    <meta
+      property="og:title"
+      content="Marketplace de caballos | AC Performance Horses"
+    />
+    <meta
+      property="og:description"
+      content="Consulta disponibilidad de caballos de rienda charra con Alejandro Casillas."
+    />
+    <meta
+      property="og:image"
+      content="https://acperformancehorses.com.mx/images/hero-since-2017.webp"
+    />
+    <link
+      rel="canonical"
+      href="https://acperformancehorses.com.mx/marketplace.html"
+    />
+    <link rel="icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="archivo.css?v=1" />
+  </head>
+  <body>
+    <a class="skip" href="#contenido">Ir al contenido</a>
+    <header class="mast">
+      <a class="wordmark" href="index.html"
+        ><img src="images/ac-monogram.png" alt="" width="50" height="50" /><span
+          >AC Performance Horses</span
+        ></a
+      >
+      <nav aria-label="Principal">
+        <a href="index.html">Alejandro</a
+        ><a href="ejemplares.html">Ejemplares</a
+        ><a href="programas.html">Entrenamiento</a
+        ><a href="marketplace.html" aria-current="page">Marketplace</a
+        ><a href="index.html#patrocinadores">Patrocinadores</a>
+      </nav>
+    </header>
+    <main id="contenido">
+      <section class="intro wrap">
+        <p class="kicker">AC Performance Horses</p>
+        <h1>Marketplace</h1>
+        <p class="lead">
+          La disponibilidad se confirma directamente con Ale. Actualmente el
+          catálogo público no tiene anuncios de venta activos.
+        </p>
+      </section>
+      <section class="portrait wrap market">
+        <figure>
+          <img
+            src="images/acph_2.webp"
+            srcset="images/acph_2-sm.webp 545w, images/acph_2.webp 602w"
+            sizes="(max-width: 720px) 100vw, 55vw"
+            width="602"
+            height="773"
+            alt="Caballo pinto con su manejador en una caballeriza"
+            loading="lazy"
+          />
+          <figcaption>Archivo de cuadra · Fotografía de ambiente</figcaption>
+        </figure>
+        <div>
+          <p class="kicker">Comprar un caballo</p>
+          <h2>Consulta a la cuadra</h2>
+          <p>
+            Prepara los detalles aquí y compártelos con Ale por mensaje directo.
+          </p>
+          <form id="consulta">
+            <label for="operacion">Me interesa</label>
+            <select id="operacion">
+              <option value="comprar">Comprar un caballo</option>
+              <option value="ofrecer">Ofrecer un caballo</option>
+            </select>
+            <label for="detalle" id="pregunta"
+              >¿Qué tipo de caballo buscas?</label
+            ><textarea
+              id="detalle"
+              maxlength="2000"
+              rows="4"
+              required
+              placeholder="Tu ubicación, nivel en la cala y presupuesto aproximado"
+            ></textarea>
+            <button type="submit">Preparar mensaje</button>
+          </form>
+          <div id="borrador" hidden>
+            <label for="mensaje">Tu mensaje para Alejandro</label
+            ><textarea id="mensaje" readonly rows="4"></textarea>
+            <button id="copiar" type="button">Copiar mensaje</button>
+            <p role="status" id="estado"></p>
+          </div>
+          <a class="line" href="https://www.instagram.com/ale_casillass/"
+            >Abrir Instagram de Ale ↗</a
+          >
+        </div>
+      </section>
+      <script src="consulta.js" defer></script>
+    </main>
+    <footer class="foot">
+      <b>AC Performance Horses</b><span>Tepatitlán de Morelos, Jalisco</span>
+      <nav aria-label="Más información">
+        <a href="instalaciones.html">Instalaciones</a
+        ><a href="propietarios.html">Propietarios</a
+        ><a href="https://www.instagram.com/ale_casillass/">Instagram ↗</a>
+      </nav>
+    </footer>
+  </body>
+</html>
