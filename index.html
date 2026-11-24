@@ -1,212 +1,463 @@
 <!doctype html>
-<html lang="es-MX">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Alejandro Casillas · Rienda charra | AC Performance Horses</title>
-    <meta
-      name="description"
-      content="Caballos de rienda charra en Tepatitlán. Conoce a Alejandro Casillas, los ejemplares que presenta y sus resultados en caladero."
-    />
-    <meta
-      property="og:title"
-      content="Alejandro Casillas · Rienda charra | AC Performance Horses"
-    />
-    <meta
-      property="og:description"
-      content="Caballos de rienda charra en Tepatitlán. Conoce a Alejandro Casillas, los ejemplares que presenta y sus resultados en caladero."
-    />
-    <meta
-      property="og:image"
-      content="https://acperformancehorses.com.mx/images/hero-since-2017.webp"
-    />
-    <link rel="canonical" href="https://acperformancehorses.com.mx/" />
-    <link rel="icon" href="images/favicon.png" />
-    <link rel="stylesheet" href="archivo.css?v=1" />
-  <link rel="stylesheet" href="modulos.css?v=1">
-  </head>
-  <body>
-    <a class="skip" href="#contenido">Ir al contenido</a>
-    <header class="ac-header">
-      <a class="ac-brand" href="index.html"><img src="images/ac-monogram.png" width="44" height="44" alt="">AC Performance Horses</a>
-      <nav aria-label="Principal">
-        <a href="ejemplares.html">Ejemplares</a>
-        <a href="caballos.html">Caballos</a>
-        <a href="programas.html">Entrenamiento</a>
+<html lang="es-MX" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AC Performance Horses · Formamos atletas, construimos campeones</title>
+  <meta name="description" content="AC Performance Horses: entrenamiento de caballos cuarto de milla para rienda charra con Alejandro Casillas en Tepatitlán de Morelos, Jalisco.">
+  <meta name="theme-color" content="#15100c">
+  <meta property="og:title" content="AC Performance Horses · Formamos atletas, construimos campeones">
+  <meta property="og:description" content="Entrenamiento de caballos cuarto de milla para rienda charra en Tepatitlán de Morelos, Jalisco.">
+  <meta property="og:image" content="https://acperformancehorses.com.mx/images/hero-since-2017.webp">
+  <link rel="canonical" href="https://acperformancehorses.com.mx/">
+  <link rel="icon" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="preload" as="image" href="images/hero-since-2017.webp" imagesrcset="images/hero-since-2017-sm.webp 600w, images/hero-since-2017.webp 1179w" imagesizes="100vw" fetchpriority="high">
+  <link rel="stylesheet" href="home.css?v=1">
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Ir al contenido</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="hdr" data-hdr data-theme="dark">
+    <a class="hdr__brand" href="#inicio" aria-label="AC Performance Horses, inicio">
+      <span class="hdr__mono" aria-hidden="true"></span>
+      <span class="hdr__name">AC Performance Horses</span>
+    </a>
+
+    <nav class="hdr__nav" id="nav" aria-label="Principal">
+      <ul class="hdr__list">
+        <li><a href="#acerca" data-nav>Acerca de</a></li>
+        <li><a href="#entrenamiento" data-nav>Entrenamiento</a></li>
+        <li><a href="instalaciones.html">Instalaciones</a></li>
+        <li><a href="marketplace.html">Marketplace</a></li>
+        <li><a href="patrocinadores.html">Patrocinadores</a></li>
+        <li><a href="#contacto" data-nav>Contacto</a></li>
+      </ul>
+      <div class="login" data-login>
+        <button class="login__btn" type="button" aria-expanded="false" aria-controls="login-panel">
+          Ingresar <span class="login__chev" aria-hidden="true"></span>
+        </button>
+        <div class="login__panel" id="login-panel" hidden>
+          <a href="propietarios.html">
+            <small>01</small>
+            <span><b>Propietarios</b><em>Seguimiento de tu caballo en AC</em></span>
+            <i aria-hidden="true">→</i>
+          </a>
+          <a href="#contacto" data-intent-link="proveedor">
+            <small>02</small>
+            <span><b>Proveedores</b><em>Alta y propuestas de servicio</em></span>
+            <i aria-hidden="true">→</i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <button class="hdr__burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ============ 00 · HERO ============ -->
+    <section class="hero" id="inicio" data-theme="dark" aria-label="Inicio">
+      <div class="hero__media" data-hero-media>
+        <img src="images/hero-since-2017.webp"
+             srcset="images/hero-since-2017-sm.webp 600w, images/hero-since-2017.webp 1179w"
+             sizes="100vw" width="1179" height="833"
+             alt="Alejandro Casillas en traje de charro, a caballo sobre un palomino en plena carrera en el lienzo"
+             fetchpriority="high" decoding="async">
+      </div>
+      <div class="hero__shade" aria-hidden="true"></div>
+
+      <div class="hero__inner" data-hero-copy>
+        <p class="hero__brand">
+          <span class="line-mask"><span>AC Performance Horses</span></span>
+        </p>
+        <h1 class="hero__title" aria-label="Formamos atletas, construimos campeones.">
+          <span class="line-mask" aria-hidden="true"><span>Formamos atletas,</span></span>
+          <span class="line-mask" aria-hidden="true"><span>construimos</span></span>
+          <span class="line-mask" aria-hidden="true"><span><em>campeones.</em></span></span>
+        </h1>
+        <a class="hero__cta" href="#entrenamiento" data-nav>
+          <span class="hero__cta-dot" aria-hidden="true"></span>
+          Ver el trabajo en pista
+        </a>
+      </div>
+
+      <dl class="hero__meta" data-hero-meta>
+        <div><dt>Disciplina</dt><dd>Rienda charra</dd></div>
+        <div><dt>Ejemplares</dt><dd>Cuarto de milla</dd></div>
+        <div><dt>Entrenador</dt><dd>Alejandro Casillas</dd></div>
+        <div><dt>Base</dt><dd>Tepatitlán, Jalisco</dd></div>
+      </dl>
+
+      <a class="hero__scroll" href="#acerca" data-nav aria-label="Bajar a Acerca de">
+        <span>Scroll</span><i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- ============ 01 · ACERCA DE ============ -->
+    <section class="about" id="acerca" data-theme="light" aria-labelledby="acerca-t">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow"><span>01</span> Acerca de</p>
+          <h2 id="acerca-t" class="sr-only">Acerca de AC Performance Horses</h2>
+        </header>
+
+        <p class="statement" data-scrub>
+          Alejandro Casillas entrena caballos cuarto de milla para la rienda charra
+          desde Tepatitlán, en los Altos de Jalisco. Cada ejemplar se forma
+          con método, paciencia y lectura fina del caballo: de sus primeras
+          montas a la pista de competencia.
+        </p>
+
+        <div class="about__grid">
+          <figure class="about__figure" data-clip>
+            <div class="about__img" data-parallax="0.12">
+              <img src="images/competencia-charro-real.webp"
+                   srcset="images/competencia-charro-real-sm.webp 323w, images/competencia-charro-real.webp 590w"
+                   sizes="(max-width: 900px) 92vw, 40vw"
+                   width="590" height="1280" loading="lazy" decoding="async"
+                   alt="Alejandro Casillas de charro, mirando a la tribuna sobre un caballo bayo en el lienzo">
+            </div>
+            <figcaption><span>Archivo AC</span><span>En competencia</span></figcaption>
+          </figure>
+
+          <ol class="pillars">
+            <li class="pillar" data-reveal>
+              <span class="pillar__n">01</span>
+              <h3 class="pillar__t">Quién</h3>
+              <p>Ale Casillas es jinete y entrenador de rienda charra. Ha presentado
+                caballos en lienzos de México y Estados Unidos, y ganó con Pirata
+                la primera edición del Duelo de Maestros en Texas.</p>
+            </li>
+            <li class="pillar" data-reveal>
+              <span class="pillar__n">02</span>
+              <h3 class="pillar__t">Qué hacemos</h3>
+              <p>Doma y entrenamiento de potros, preparación para futurities y
+                competencia, presentación en caladero y búsqueda del prospecto
+                adecuado para cada jinete.</p>
+            </li>
+            <li class="pillar" data-reveal>
+              <span class="pillar__n">03</span>
+              <h3 class="pillar__t">Dónde</h3>
+              <p>En nuestras instalaciones de Tepatitlán de Morelos: pista de arena
+                trabajada a diario y caballerizas entre campos de agave.</p>
+              <a class="link" href="instalaciones.html">Conocer las instalaciones <span aria-hidden="true">↗</span></a>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="mission" data-theme="dark">
+        <div class="mission__media" data-parallax-wrap>
+          <img src="images/training-field-calm.webp"
+               srcset="images/training-field-calm-sm.webp 600w, images/training-field-calm.webp 1280w"
+               sizes="100vw" width="1280" height="854" loading="lazy" decoding="async"
+               alt="Ale trabajando un caballo tordillo al paso, con campos de agave al fondo"
+               data-parallax="-0.18">
+        </div>
+        <div class="mission__copy wrap">
+          <p class="eyebrow eyebrow--light"><span>✦</span> Misión</p>
+          <blockquote class="mission__quote" data-split>
+            Desarrollar el potencial atlético de cada caballo con un método honesto
+            y constante, para que llegue a la pista listo para competir
+            <em>y para ganar.</em>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true" data-marquee>
+      <div class="marquee__track">
+        <span>Rienda charra</span><i>✦</i><span class="o">Cuarto de milla</span><i>✦</i>
+        <span>Altos de Jalisco</span><i>✦</i><span class="o">Tepatitlán de Morelos</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ 02 · ENTRENAMIENTO (EDIT) ============ -->
+    <section class="train" id="entrenamiento" data-theme="dark" aria-labelledby="entrenamiento-t">
+      <div class="wrap">
+        <header class="sec-head sec-head--split">
+          <div>
+            <p class="eyebrow eyebrow--light"><span>02</span> Entrenamiento</p>
+            <h2 id="entrenamiento-t" class="h-display" data-split>
+              Cada día, <em>en la pista.</em>
+            </h2>
+          </div>
+          <p class="sec-head__side" data-reveal>
+            Un vistazo al trabajo diario: sesiones de rienda, caladas y la
+            preparación de cada caballo rumbo a la competencia.
+          </p>
+        </header>
+      </div>
+
+      <!-- The edit: sequenced montage -->
+      <div class="edit-stage" data-edit-stage>
+        <div class="edit" data-edit tabindex="0" aria-label="Edit de entrenamiento. Pulsa para pausar o reproducir.">
+          <div class="edit__shots">
+            <div class="shot shot--v" data-shot data-caption="Rienda" data-sub="Trabajo diario en pista">
+              <img class="shot__bg" src="images/poster-rienda.jpg" alt="" decoding="async">
+              <video muted playsinline preload="metadata" poster="images/poster-rienda.jpg" src="images/7D137245-F8E4-4C16-9256-FC8DF8790502.MP4"></video>
+            </div>
+            <div class="shot" data-shot data-caption="La cala" data-sub="En competencia" data-duration="3200">
+              <img src="images/competition-cala.png" alt="" loading="lazy" decoding="async">
+            </div>
+            <div class="shot shot--v" data-shot data-caption="Carácter" data-sub="Cada caballo, su proceso">
+              <img class="shot__bg" src="images/poster-ejemplar.jpg" alt="" loading="lazy" decoding="async">
+              <video muted playsinline preload="metadata" poster="images/poster-ejemplar.jpg" src="images/video.MOV"></video>
+            </div>
+            <div class="shot" data-shot data-caption="Formación" data-sub="Entre agaves" data-duration="3200">
+              <img src="images/training-field-action.png" alt="" loading="lazy" decoding="async">
+            </div>
+            <div class="shot" data-shot data-caption="La pista" data-sub="Tepatitlán, Jalisco" data-duration="3000">
+              <img src="images/instalaciones-pista-atardecer.jpg" alt="" loading="lazy" decoding="async">
+            </div>
+          </div>
+
+          <div class="edit__vignette" aria-hidden="true"></div>
+
+          <div class="edit__hud edit__hud--top" aria-hidden="true">
+            <span class="rec"><i></i> AC · Edit 01</span>
+            <span class="tc" data-tc>00:00:00</span>
+          </div>
+
+          <div class="edit__caption" aria-live="polite">
+            <span class="edit__idx" data-idx>01 / 05</span>
+            <span class="edit__word line-mask"><span data-word>Rienda</span></span>
+            <span class="edit__sub" data-subtitle>Trabajo diario en pista</span>
+          </div>
+
+          <div class="edit__controls">
+            <div class="edit__bars" data-bars role="group" aria-label="Escenas"></div>
+            <button class="edit__btn" type="button" data-play aria-label="Pausar">
+              <svg viewBox="0 0 24 24" class="i-pause" aria-hidden="true"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+              <svg viewBox="0 0 24 24" class="i-play" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>
+            </button>
+            <button class="edit__btn" type="button" data-mute aria-pressed="false" aria-label="Activar sonido">
+              <svg viewBox="0 0 24 24" class="i-muted" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              <svg viewBox="0 0 24 24" class="i-sound" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 8.5a5 5 0 010 7M18.5 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reels & photos rail -->
+      <div class="wrap rail-head">
+        <h3 class="h-sub">Reels y fotos</h3>
+        <div class="rail-nav">
+          <span class="rail-progress" aria-hidden="true"><i data-rail-progress></i></span>
+          <button type="button" class="round" data-rail-prev aria-label="Anterior">←</button>
+          <button type="button" class="round" data-rail-next aria-label="Siguiente">→</button>
+        </div>
+      </div>
+
+      <div class="rail" data-rail tabindex="0" aria-label="Galería de reels y fotos">
+        <button class="card card--video card--tall" type="button" data-lightbox="video" data-src="images/7D137245-F8E4-4C16-9256-FC8DF8790502.MP4" aria-label="Ver video: trabajo de rienda en pista">
+          <video muted loop playsinline preload="none" poster="images/poster-rienda.jpg" src="images/7D137245-F8E4-4C16-9256-FC8DF8790502.MP4"></video>
+          <span class="card__tag">Video</span>
+          <span class="card__play" aria-hidden="true"></span>
+          <span class="card__cap">Rienda</span>
+        </button>
+        <button class="card" type="button" data-lightbox="img" data-src="images/competencia-charro-real.webp" aria-label="Ver foto: Ale en competencia">
+          <img src="images/competencia-charro-real-sm.webp" alt="" loading="lazy" decoding="async">
+          <span class="card__tag">Foto</span>
+          <span class="card__cap">En el lienzo</span>
+        </button>
+        <a class="card card--ig" href="https://www.instagram.com/ale_casillass/reel/DfqBL3tg9Zd/" target="_blank" rel="noopener">
+          <span class="card__tag">Reel · Instagram</span>
+          <span class="card__big">Olaf</span>
+          <span class="card__meta">Potro de dos años, en sus primeras etapas de trabajo.</span>
+          <span class="card__go" aria-hidden="true">↗</span>
+        </a>
+        <button class="card" type="button" data-lightbox="img" data-src="images/acph_calando.png" aria-label="Ver foto: calada en competencia">
+          <img src="images/acph_calando.png" alt="" loading="lazy" decoding="async">
+          <span class="card__tag">Foto</span>
+          <span class="card__cap">La cala</span>
+        </button>
+        <button class="card card--video card--tall" type="button" data-lightbox="video" data-src="images/video.MOV" aria-label="Ver video: retrato de un ejemplar tordillo">
+          <video muted loop playsinline preload="none" poster="images/poster-ejemplar.jpg" src="images/video.MOV"></video>
+          <span class="card__tag">Video</span>
+          <span class="card__play" aria-hidden="true"></span>
+          <span class="card__cap">Carácter</span>
+        </button>
+        <a class="card card--ig" href="https://www.instagram.com/ale_casillass/reel/Db9nmLgsLT9/" target="_blank" rel="noopener">
+          <span class="card__tag">Reel · Instagram</span>
+          <span class="card__big">Bruja 4T</span>
+          <span class="card__meta">En preparación rumbo al Futurity Millonario.</span>
+          <span class="card__go" aria-hidden="true">↗</span>
+        </a>
+        <button class="card" type="button" data-lightbox="img" data-src="images/training-field-calm.webp" aria-label="Ver foto: trabajo de campo">
+          <img src="images/training-field-calm-sm.webp" alt="" loading="lazy" decoding="async">
+          <span class="card__tag">Foto</span>
+          <span class="card__cap">Trabajo de campo</span>
+        </button>
+        <a class="card card--ig" href="https://www.instagram.com/rancho_los_mezquitez/reel/Db8q1SnRC4a/" target="_blank" rel="noopener">
+          <span class="card__tag">Reel · Instagram</span>
+          <span class="card__big">Raptor</span>
+          <span class="card__meta">Sesión con Ale, documentada por Rancho Los Mezquitez.</span>
+          <span class="card__go" aria-hidden="true">↗</span>
+        </a>
+        <a class="card card--ig card--follow" href="https://www.instagram.com/ale_casillass/" target="_blank" rel="noopener">
+          <span class="card__tag">Instagram</span>
+          <span class="card__big">@ale_casillass</span>
+          <span class="card__meta">Más reels del día a día en la cuenta de Ale.</span>
+          <span class="card__go" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ 03 · CONTACTO ============ -->
+    <section class="contact" id="contacto" data-theme="light" aria-labelledby="contacto-t">
+      <div class="wrap contact__grid">
+        <div class="contact__intro">
+          <p class="eyebrow"><span>03</span> Contacto</p>
+          <h2 id="contacto-t" class="h-display h-display--ink" data-split>
+            Hablemos de tu <em>próximo campeón.</em>
+          </h2>
+          <p class="contact__lede" data-reveal>
+            Clientes, compradores, marcas y proveedores: cuéntanos qué buscas y
+            te respondemos personalmente.
+          </p>
+          <dl class="contact__info" data-reveal>
+            <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/ale_casillass/" target="_blank" rel="noopener">@ale_casillass ↗</a></dd></div>
+            <div><dt>Ubicación</dt><dd>Tepatitlán de Morelos, Jalisco</dd></div>
+          </dl>
+        </div>
+
+        <form class="form" data-form novalidate>
+          <fieldset class="intents">
+            <legend class="form__legend">¿Qué te trae a AC?</legend>
+            <label class="intent">
+              <input type="radio" name="motivo" value="cliente" required>
+              <span class="intent__n">01</span>
+              <span class="intent__t">Entrenar mi caballo</span>
+              <span class="intent__d">Quiero que AC lo prepare o lo lleve a competencia.</span>
+            </label>
+            <label class="intent">
+              <input type="radio" name="motivo" value="prospecto">
+              <span class="intent__n">02</span>
+              <span class="intent__t">Encontrar un prospecto</span>
+              <span class="intent__d">Busco un caballo con proyección para competir.</span>
+            </label>
+            <label class="intent">
+              <input type="radio" name="motivo" value="marca">
+              <span class="intent__n">03</span>
+              <span class="intent__t">Colaborar con mi marca</span>
+              <span class="intent__d">Patrocinio, contenido o presencia en eventos.</span>
+            </label>
+            <label class="intent">
+              <input type="radio" name="motivo" value="proveedor">
+              <span class="intent__n">04</span>
+              <span class="intent__t">Ofrecer mi producto o servicio</span>
+              <span class="intent__d">Alimento, herraje, salud, equipo y más.</span>
+            </label>
+          </fieldset>
+
+          <div class="form__body" data-form-body>
+            <div class="extra" data-for="cliente" hidden>
+              <label class="field"><span>Caballo (nombre y edad)</span><input name="caballo" autocomplete="off" placeholder="Ej. potro de 3 años"></label>
+              <label class="field"><span>Etapa actual</span>
+                <select name="etapa">
+                  <option value="">Selecciona</option>
+                  <option>Sin domar</option><option>En doma</option>
+                  <option>Rienda avanzada</option><option>Listo para competir</option>
+                </select>
+              </label>
+            </div>
+            <div class="extra" data-for="prospecto" hidden>
+              <label class="field"><span>¿Qué nivel buscas?</span>
+                <select name="nivel">
+                  <option value="">Selecciona</option>
+                  <option>Prospecto en formación</option><option>Futurity</option>
+                  <option>Caballo hecho para competir</option>
+                </select>
+              </label>
+              <label class="field"><span>Presupuesto aproximado</span><input name="presupuesto" autocomplete="off" placeholder="Opcional"></label>
+            </div>
+            <div class="extra" data-for="marca" hidden>
+              <label class="field"><span>Marca</span><input name="marca" autocomplete="organization"></label>
+              <label class="field"><span>Tipo de colaboración</span>
+                <select name="colaboracion">
+                  <option value="">Selecciona</option>
+                  <option>Patrocinio</option><option>Contenido en redes</option>
+                  <option>Evento o competencia</option><option>Otra</option>
+                </select>
+              </label>
+            </div>
+            <div class="extra" data-for="proveedor" hidden>
+              <label class="field"><span>Empresa</span><input name="empresa" autocomplete="organization"></label>
+              <label class="field"><span>Categoría</span>
+                <select name="categoria">
+                  <option value="">Selecciona</option>
+                  <option>Alimento y suplementos</option><option>Herraje</option>
+                  <option>Veterinaria y salud</option><option>Talabartería y equipo</option>
+                  <option>Transporte</option><option>Otra</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="fields">
+              <label class="field"><span>Nombre</span><input name="nombre" required autocomplete="name"></label>
+              <label class="field"><span>WhatsApp</span><input name="whatsapp" type="tel" required autocomplete="tel" inputmode="tel"></label>
+              <label class="field"><span>Correo <small>(opcional)</small></span><input name="correo" type="email" autocomplete="email"></label>
+              <label class="field"><span>Ciudad</span><input name="ciudad" autocomplete="address-level2"></label>
+              <label class="field field--wide"><span>Mensaje</span><textarea name="mensaje" rows="3" required></textarea></label>
+            </div>
+
+            <div class="form__foot">
+              <p class="form__note">Al enviar, preparamos tu mensaje para mandarlo directo a Ale.</p>
+              <button class="btn" type="submit"><span>Enviar mensaje</span><i aria-hidden="true">→</i></button>
+            </div>
+          </div>
+
+          <div class="sent" data-sent hidden tabindex="-1">
+            <p class="sent__t">Tu mensaje está listo.</p>
+            <textarea class="sent__msg" data-msg readonly rows="8" aria-label="Mensaje preparado"></textarea>
+            <div class="sent__row" data-channels></div>
+            <p class="sent__status" data-status role="status"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot" data-theme="dark">
+    <div class="wrap foot__top">
+      <p class="foot__claim">Formamos atletas, <em>construimos campeones.</em></p>
+      <nav class="foot__nav" aria-label="Secundaria">
+        <a href="#acerca" data-nav>Acerca de</a>
+        <a href="#entrenamiento" data-nav>Entrenamiento</a>
         <a href="instalaciones.html">Instalaciones</a>
-        <a href="palmares.html">Palmarés</a>
         <a href="marketplace.html">Marketplace</a>
         <a href="patrocinadores.html">Patrocinadores</a>
-        <a href="propietarios.html" class="ac-owners">Propietarios</a>
+        <a href="propietarios.html">Propietarios</a>
       </nav>
-    </header>
-    <main id="contenido">
-      <section class="spread">
-        <div class="covercopy">
-          <p class="kicker">Rienda charra &nbsp; / &nbsp; Jalisco, México</p>
-          <h1>Alejandro<br /><i>Casillas</i></h1>
-          <p>
-            Entrenador de caballos cuarto de milla en Tepatitlán de Morelos.
-          </p>
-          <a class="coverlink" href="ejemplares.html"
-            >Ver caballos en trabajo <span>↓</span></a
-          >
-        </div>
-        <figure class="coverphoto">
-          <img
-            src="images/hero-since-2017.webp"
-            srcset="
-              images/hero-since-2017-sm.webp  600w,
-              images/hero-since-2017.webp    1179w
-            "
-            sizes="(max-width: 720px) 100vw, 55vw"
-            width="1179"
-            height="833"
-            alt="Jinete y caballo en plena punta sobre la arena del lienzo"
-            fetchpriority="high"
-          />
-          <figcaption>Archivo AC <span>La punta de la cala</span></figcaption>
-        </figure>
-      </section>
-      <section class="portrait wrap">
-        <figure>
-          <img
-            src="images/competition-portrait.webp"
-            srcset="
-              images/competition-portrait-sm.webp  600w,
-              images/competition-portrait.webp    1179w
-            "
-            sizes="(max-width: 720px) 100vw, 55vw"
-            width="1179"
-            height="1254"
-            alt="Alejandro Casillas a caballo en el lienzo"
-            loading="lazy"
-          />
-          <figcaption>Alejandro Casillas · Archivo de competencia</figcaption>
-        </figure>
-        <div>
-          <p class="kicker">El entrenador</p>
-          <h2>Desde el lienzo<br />de Tepatitlán.</h2>
-          <p class="lead">
-            Parte del trabajo de Ale se puede seguir desde las primeras montas
-            de un potro hasta su presentación en un caladero.
-          </p>
-          <p>
-            En su archivo conviven Olaf, de dos años al momento de la grabación,
-            y Bruja 4T, ya en preparación para el Futurity Millonario. Cada
-            video muestra al caballo en una etapa distinta.
-          </p>
-          <a class="line" href="https://www.instagram.com/ale_casillass/"
-            >Seguir a Ale en Instagram <span aria-hidden="true">↗</span></a
-          >
-        </div>
-      </section>
-      <section class="wrap module-index" aria-label="Visita AC">
-<a class="module-tile" href="ejemplares.html"><img src="images/ejemplar-moro-real.png" loading="lazy" alt=""><span><small>El moro y el archivo de cuadra</small><strong>Ejemplares</strong></span></a>
-<a class="module-tile" href="instalaciones.html"><img src="images/instalaciones-pista-atardecer.jpg" loading="lazy" alt=""><span><small>Pistas y caballerizas</small><strong>Instalaciones</strong></span></a>
-<a class="module-tile" href="propietarios.html"><img src="images/training-field-calm.webp" loading="lazy" alt=""><span><small>Seguimiento y solicitudes de ingreso</small><strong>Propietarios</strong></span></a>
-</section>
-<section class="ink" id="archivo">
-        <div class="wrap">
-          <div class="sectionhead">
-            <div>
-              <p class="kicker">Del archivo de Ale</p>
-              <h2>Caballos en trabajo</h2>
-            </div>
-            <a class="line" href="ejemplares.html"
-              >Ver el archivo completo <span aria-hidden="true">↗</span></a
-            >
-          </div>
-          <article class="stud">
-            <h3>Olaf</h3>
-            <p>
-              Potro de dos años en la publicación de Ale. Hijo de SG Frozen
-              Enterprize y Mischievous Diamonds.
-            </p>
-            <a
-              class="line"
-              href="https://www.instagram.com/ale_casillass/reel/DfqBL3tg9Zd/"
-              >Ver video <span aria-hidden="true">↗</span></a
-            >
-          </article>
-          <article class="stud">
-            <h3>Bruja 4T</h3>
-            <p>
-              Hija de Ara Brujo y CC Sonitas Valentine. Ale la presenta a pocos
-              días del Futurity Millonario.
-            </p>
-            <a
-              class="line"
-              href="https://www.instagram.com/ale_casillass/reel/Db9nmLgsLT9/"
-              >Ver video <span aria-hidden="true">↗</span></a
-            >
-          </article>
-          <article class="stud">
-            <h3>Raptor</h3>
-            <p>
-              Rancho Los Mezquitez documenta una sesión con Ale. Potro de tres
-              años en el video, hijo de A Vintage Smoke.
-            </p>
-            <a
-              class="line"
-              href="https://www.instagram.com/rancho_los_mezquitez/reel/Db8q1SnRC4a/"
-              >Ver video <span aria-hidden="true">↗</span></a
-            >
-          </article>
-        </div>
-      </section>
-      <section class="paper wrap" id="palmares"><p class="kicker">Palmarés</p><h2>Campeón con Pirata</h2><p class="lead">Ale ganó la primera edición del Duelo de Maestros en Texas. Su palmarés también recoge el cocampeonato de la primera fase de Excelencia Charra y sus resultados con Valentino y Gunnaspotya.</p><a class="line" href="palmares.html">Ver premios y competencias <span aria-hidden="true">↗</span></a></section>
-      <section id="disponibilidad" class="band">
-        <div class="wrap bandin">
-          <div>
-            <p class="kicker">Compra y venta</p>
-            <h2>Marketplace</h2>
-          </div>
-          <div>
-            <p>
-              Consulta qué caballos están disponibles y pide un video reciente
-              antes de programar una visita.
-            </p>
-            <a class="line" href="marketplace.html"
-              >Consultar disponibilidad <span aria-hidden="true">↗</span></a
-            >
-          </div>
-        </div>
-      </section>
-      <section id="patrocinadores" class="sponsors wrap">
-        <p class="kicker">Patrocinadores y colaboraciones</p>
-        <div>
-          <h2>West Point Hats</h2><a class="line" href="patrocinadores.html">Ver colaboraciones <span aria-hidden="true">↗</span></a>
-          <p>
-            La marca aparece junto a Ale en los videos de Cangrejo y Lapua Is
-            Red.
-          </p>
-          <a
-            class="line"
-            href="https://www.instagram.com/ale_casillass/reel/Ddk3H5OgVHc/"
-            >Ver la publicación con Cangrejo
-            <span aria-hidden="true">↗</span></a
-          >
-        </div>
-        <aside>
-          <h3>Contacto para marcas</h3>
-          <p>
-            Para proponer un patrocinio, comparte con Ale el nombre de tu marca,
-            el evento y las fechas.
-          </p>
-          <a class="line" href="https://www.instagram.com/ale_casillass/"
-            >Contactar a Ale <span aria-hidden="true">↗</span></a
-          >
-        </aside>
-      </section>
-    </main>
-    <footer class="foot">
-      <b>AC Performance Horses</b><span>Tepatitlán de Morelos, Jalisco</span>
-      <nav aria-label="Más información">
-        <a href="instalaciones.html">Instalaciones</a
-        ><a href="propietarios.html">Propietarios</a
-        ><a href="https://www.instagram.com/ale_casillass/">Instagram ↗</a>
-      </nav>
-    </footer>
-  </body>
+    </div>
+    <p class="foot__mark" aria-hidden="true" data-fit>AC Performance Horses</p>
+    <div class="wrap foot__bottom">
+      <span>© <span data-year>2026</span> AC Performance Horses</span>
+      <span>Tepatitlán de Morelos, Jalisco · México</span>
+      <a href="https://www.instagram.com/ale_casillass/" target="_blank" rel="noopener">Instagram ↗</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <dialog class="lb" data-lb aria-label="Vista ampliada">
+    <button class="lb__close" type="button" data-lb-close aria-label="Cerrar">✕</button>
+    <div class="lb__body" data-lb-body></div>
+  </dialog>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="home.js?v=1" defer></script>
+</body>
 </html>
